@@ -1,0 +1,1436 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Execution Report</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .header { background-color: #f0f0f0; padding: 20px; border-radius: 5px; }
+        .summary { background-color: #e8f5e8; padding: 15px; border-radius: 5px; margin: 20px 0; }
+        .test-case { border: 1px solid #ddd; margin: 10px 0; border-radius: 5px; }
+        .test-case-header { background-color: #f9f9f9; padding: 10px; border-bottom: 1px solid #ddd; }
+        .test-step { margin: 5px 10px; padding: 5px; border-left: 3px solid #ddd; }
+        .passed { border-left-color: #4CAF50; }
+        .failed { border-left-color: #f44336; }
+        .running { border-left-color: #2196F3; }
+        .not-started { border-left-color: #9E9E9E; }
+        .error-details { background-color: #ffebee; padding: 10px; margin: 5px 0; border-radius: 3px; }
+        .stack-trace { background-color: #f5f5f5; padding: 10px; margin: 5px 0; font-family: monospace; font-size: 12px; white-space: pre-wrap; }
+        .execution-errors { background-color: #fff3cd; padding: 15px; border-radius: 5px; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Test Execution Report</h1>
+        <p>Generated on: 2025-09-09 11:47:52</p>
+    </div>
+
+    <div class="summary">
+        <h2>Summary</h2>
+        <p><strong>Total Tests:</strong> 32</p>
+        <p><strong>Passed:</strong> 2</p>
+        <p><strong>Failed:</strong> 17</p>
+        <p><strong>Total Steps:</strong> 30</p>
+        <p><strong>Passed Steps:</strong> 13</p>
+        <p><strong>Failed Steps:</strong> 17</p>
+        <p><strong>Duration:</strong> 115.36 seconds</p>
+        <p><strong>Execution Errors:</strong> 0</p>
+    </div>
+
+    <div class="test-case">
+        <div class="test-case-header">
+            <h3>1.1 Dynamic Supreme - Wallet Balance</h3>
+            <p><strong>Status:</strong> PASSED</p>
+            <p><strong>Description:</strong> Test wallet balance payment for Dynamic Supreme package</p>
+            <p><strong>Duration:</strong> 24.41 seconds</p>
+</div>
+        <div class="test-step passed">
+            <p><strong>Login</strong> - Login with account that has balance</p>
+            <p>Status: PASSED</p>
+            <p>Duration: 12.02 seconds</p>
+</div>
+        <div class="test-step passed">
+            <p><strong>Select Package</strong> - Select Dynamic Supreme package</p>
+            <p>Status: PASSED</p>
+            <p>Duration: 2.11 seconds</p>
+</div>
+        <div class="test-step passed">
+            <p><strong>Click Buy Now</strong> - Click 立即购买 button</p>
+            <p>Status: PASSED</p>
+            <p>Duration: 1.11 seconds</p>
+</div>
+        <div class="test-step passed">
+            <p><strong>Select Payment</strong> - Select 余额 payment</p>
+            <p>Status: PASSED</p>
+            <p>Duration: 1.08 seconds</p>
+</div>
+        <div class="test-step passed">
+            <p><strong>Click Pay Now</strong> - Click 立即支付 button</p>
+            <p>Status: PASSED</p>
+            <p>Duration: 2.09 seconds</p>
+</div>
+        <div class="test-step passed">
+            <p><strong>Verify Success</strong> - Check purchase success message</p>
+            <p>Status: PASSED</p>
+            <p>Duration: 1.10 seconds</p>
+</div>
+        <div class="test-step passed">
+            <p><strong>Close Success Popup</strong> - Close the success popup</p>
+            <p>Status: PASSED</p>
+            <p>Duration: 1.05 seconds</p>
+</div></div>
+    <div class="test-case">
+        <div class="test-case-header">
+            <h3>1.2 Dynamic Supreme - Alipay</h3>
+            <p><strong>Status:</strong> PASSED</p>
+            <p><strong>Description:</strong> Test Alipay payment flow for Dynamic Supreme package</p>
+            <p><strong>Duration:</strong> 90.86 seconds</p>
+</div>
+        <div class="test-step passed">
+            <p><strong>Select Package</strong> - Select Dynamic Supreme package</p>
+            <p>Status: PASSED</p>
+            <p>Duration: 2.06 seconds</p>
+</div>
+        <div class="test-step passed">
+            <p><strong>Click Buy Now</strong> - Click 立即购买 button</p>
+            <p>Status: PASSED</p>
+            <p>Duration: 1.13 seconds</p>
+</div>
+        <div class="test-step passed">
+            <p><strong>Select Payment</strong> - Select 支付宝 payment</p>
+            <p>Status: PASSED</p>
+            <p>Duration: 1.11 seconds</p>
+</div>
+        <div class="test-step passed">
+            <p><strong>Click Pay Now</strong> - Click 立即支付 button</p>
+            <p>Status: PASSED</p>
+            <p>Duration: 2.07 seconds</p>
+</div>
+        <div class="test-step passed">
+            <p><strong>Verify Alipay</strong> - Check Alipay sandbox opens (attempt 1)</p>
+            <p>Status: PASSED</p>
+            <p>Duration: 84.48 seconds</p>
+</div>
+        <div class="test-step passed">
+            <p><strong>Process Alipay Payment</strong> - Complete full Alipay payment flow</p>
+            <p>Status: PASSED</p>
+            <p>Duration: 84.44 seconds</p>
+</div></div>
+    <div class="test-case">
+        <div class="test-case-header">
+            <h3>1.3 Dynamic Supreme - WeChat</h3>
+            <p><strong>Status:</strong> NOT_STARTED</p>
+            <p><strong>Description:</strong> Test WeChat payment flow for Dynamic Supreme package</p>
+            <p><strong>Duration:</strong> 0.00 seconds</p>
+</div></div>
+    <div class="test-case">
+        <div class="test-case-header">
+            <h3>2.1 Static IP - Wallet Balance</h3>
+            <p><strong>Status:</strong> NOT_STARTED</p>
+            <p><strong>Description:</strong> Test wallet balance payment for Static IP package</p>
+            <p><strong>Duration:</strong> 0.00 seconds</p>
+</div></div>
+    <div class="test-case">
+        <div class="test-case-header">
+            <h3>2.2 Static IP - Alipay</h3>
+            <p><strong>Status:</strong> NOT_STARTED</p>
+            <p><strong>Description:</strong> Test Alipay payment flow for Static IP package</p>
+            <p><strong>Duration:</strong> 0.00 seconds</p>
+</div></div>
+    <div class="test-case">
+        <div class="test-case-header">
+            <h3>2.3 Static IP - WeChat</h3>
+            <p><strong>Status:</strong> NOT_STARTED</p>
+            <p><strong>Description:</strong> Test WeChat payment flow for Static IP package</p>
+            <p><strong>Duration:</strong> 0.00 seconds</p>
+</div></div>
+    <div class="test-case">
+        <div class="test-case-header">
+            <h3>3.1 Dynamic Standard - Wallet Balance</h3>
+            <p><strong>Status:</strong> NOT_STARTED</p>
+            <p><strong>Description:</strong> Test wallet balance payment for Dynamic Standard package</p>
+            <p><strong>Duration:</strong> 0.00 seconds</p>
+</div></div>
+    <div class="test-case">
+        <div class="test-case-header">
+            <h3>3.2 Dynamic Standard - Alipay</h3>
+            <p><strong>Status:</strong> NOT_STARTED</p>
+            <p><strong>Description:</strong> Test Alipay payment flow for Dynamic Standard package</p>
+            <p><strong>Duration:</strong> 0.00 seconds</p>
+</div></div>
+    <div class="test-case">
+        <div class="test-case-header">
+            <h3>3.3 Dynamic Standard - WeChat</h3>
+            <p><strong>Status:</strong> NOT_STARTED</p>
+            <p><strong>Description:</strong> Test WeChat payment flow for Dynamic Standard package</p>
+            <p><strong>Duration:</strong> 0.00 seconds</p>
+</div></div>
+    <div class="test-case">
+        <div class="test-case-header">
+            <h3>4.1 Dynamic Dedicated - Wallet Balance</h3>
+            <p><strong>Status:</strong> NOT_STARTED</p>
+            <p><strong>Description:</strong> Test wallet balance payment for Dynamic Dedicated package</p>
+            <p><strong>Duration:</strong> 0.00 seconds</p>
+</div></div>
+    <div class="test-case">
+        <div class="test-case-header">
+            <h3>4.2 Dynamic Dedicated - Alipay</h3>
+            <p><strong>Status:</strong> NOT_STARTED</p>
+            <p><strong>Description:</strong> Test Alipay payment flow for Dynamic Dedicated package</p>
+            <p><strong>Duration:</strong> 0.00 seconds</p>
+</div></div>
+    <div class="test-case">
+        <div class="test-case-header">
+            <h3>4.3 Dynamic Dedicated - WeChat</h3>
+            <p><strong>Status:</strong> NOT_STARTED</p>
+            <p><strong>Description:</strong> Test WeChat payment flow for Dynamic Dedicated package</p>
+            <p><strong>Duration:</strong> 0.00 seconds</p>
+</div></div>
+    <div class="test-case">
+        <div class="test-case-header">
+            <h3>5.1.1 Dynamic Supreme - Wallet Balance</h3>
+            <p><strong>Status:</strong> FAILED</p>
+            <p><strong>Description:</strong> Test wallet balance payment for Dynamic Supreme in Personal Center</p>
+            <p><strong>Duration:</strong> 0.02 seconds</p>
+</div>
+        <div class="test-step failed">
+            <p><strong>Navigate to Personal Center</strong> - Navigate to account manager page</p>
+            <p>Status: FAILED</p>
+            <p>Duration: 0.02 seconds</p>
+
+            <div class="error-details">
+                <p><strong>Step Error:</strong> Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x0x7ff653053d85+79397]
+	GetHandleVerifier [0x0x7ff653053de0+79488]
+	(No symbol) [0x0x7ff652dfbf2c]
+	(No symbol) [0x0x7ff652e432df]
+	(No symbol) [0x0x7ff652e7b062]
+	(No symbol) [0x0x7ff652e75b93]
+	(No symbol) [0x0x7ff652e74c59]
+	(No symbol) [0x0x7ff652dc6fd5]
+	GetHandleVerifier [0x0x7ff65331e1ed+3005069]
+	GetHandleVerifier [0x0x7ff65331831d+2980797]
+	GetHandleVerifier [0x0x7ff653337e0d+3110573]
+	GetHandleVerifier [0x0x7ff65306d6de+184190]
+	GetHandleVerifier [0x0x7ff65307516f+215567]
+	(No symbol) [0x0x7ff652dc5fd1]
+	GetHandleVerifier [0x0x7ff653441d48+4199912]
+	BaseThreadInitThunk [0x0x7ff89a3fe8d7+23]
+	RtlUserThreadStart [0x0x7ff89c4bc34c+44]
+</p>
+
+                <div class="stack-trace">Traceback (most recent call last):
+  File "c:\Users\ahmad\Documents\AAA_backup\GitHub\Tian Qi IP _GH\Test_Scenario\test_report.py", line 379, in track_step
+    yield step
+  File "c:\Users\ahmad\Documents\AAA_backup\GitHub\Tian Qi IP _GH\Test_Scenario\website_Payment_Tests.py", line 549, in navigate_to_personal_center
+    driver.get("https://test-ip-tianqi.cd.xiaoxigroup.net/personal/accountManager")
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 354, in get
+    self.execute(Command.GET, {"url": url})
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 345, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidSessionIdException: Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x0x7ff653053d85+79397]
+	GetHandleVerifier [0x0x7ff653053de0+79488]
+	(No symbol) [0x0x7ff652dfbf2c]
+	(No symbol) [0x0x7ff652e432df]
+	(No symbol) [0x0x7ff652e7b062]
+	(No symbol) [0x0x7ff652e75b93]
+	(No symbol) [0x0x7ff652e74c59]
+	(No symbol) [0x0x7ff652dc6fd5]
+	GetHandleVerifier [0x0x7ff65331e1ed+3005069]
+	GetHandleVerifier [0x0x7ff65331831d+2980797]
+	GetHandleVerifier [0x0x7ff653337e0d+3110573]
+	GetHandleVerifier [0x0x7ff65306d6de+184190]
+	GetHandleVerifier [0x0x7ff65307516f+215567]
+	(No symbol) [0x0x7ff652dc5fd1]
+	GetHandleVerifier [0x0x7ff653441d48+4199912]
+	BaseThreadInitThunk [0x0x7ff89a3fe8d7+23]
+	RtlUserThreadStart [0x0x7ff89c4bc34c+44]
+
+</div>
+</div></div></div>
+    <div class="test-case">
+        <div class="test-case-header">
+            <h3>5.1.2 Dynamic Supreme - Alipay</h3>
+            <p><strong>Status:</strong> FAILED</p>
+            <p><strong>Description:</strong> Test Alipay payment flow for Dynamic Supreme in Personal Center</p>
+            <p><strong>Duration:</strong> 0.00 seconds</p>
+</div>
+        <div class="test-step failed">
+            <p><strong>Navigate to Personal Center</strong> - Navigate to account manager page</p>
+            <p>Status: FAILED</p>
+            <p>Duration: 0.00 seconds</p>
+
+            <div class="error-details">
+                <p><strong>Step Error:</strong> Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x0x7ff653053d85+79397]
+	GetHandleVerifier [0x0x7ff653053de0+79488]
+	(No symbol) [0x0x7ff652dfbf2c]
+	(No symbol) [0x0x7ff652e432df]
+	(No symbol) [0x0x7ff652e7b062]
+	(No symbol) [0x0x7ff652e75b93]
+	(No symbol) [0x0x7ff652e74c59]
+	(No symbol) [0x0x7ff652dc6fd5]
+	GetHandleVerifier [0x0x7ff65331e1ed+3005069]
+	GetHandleVerifier [0x0x7ff65331831d+2980797]
+	GetHandleVerifier [0x0x7ff653337e0d+3110573]
+	GetHandleVerifier [0x0x7ff65306d6de+184190]
+	GetHandleVerifier [0x0x7ff65307516f+215567]
+	(No symbol) [0x0x7ff652dc5fd1]
+	GetHandleVerifier [0x0x7ff653441d48+4199912]
+	BaseThreadInitThunk [0x0x7ff89a3fe8d7+23]
+	RtlUserThreadStart [0x0x7ff89c4bc34c+44]
+</p>
+
+                <div class="stack-trace">Traceback (most recent call last):
+  File "c:\Users\ahmad\Documents\AAA_backup\GitHub\Tian Qi IP _GH\Test_Scenario\test_report.py", line 379, in track_step
+    yield step
+  File "c:\Users\ahmad\Documents\AAA_backup\GitHub\Tian Qi IP _GH\Test_Scenario\website_Payment_Tests.py", line 549, in navigate_to_personal_center
+    driver.get("https://test-ip-tianqi.cd.xiaoxigroup.net/personal/accountManager")
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 354, in get
+    self.execute(Command.GET, {"url": url})
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 345, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidSessionIdException: Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x0x7ff653053d85+79397]
+	GetHandleVerifier [0x0x7ff653053de0+79488]
+	(No symbol) [0x0x7ff652dfbf2c]
+	(No symbol) [0x0x7ff652e432df]
+	(No symbol) [0x0x7ff652e7b062]
+	(No symbol) [0x0x7ff652e75b93]
+	(No symbol) [0x0x7ff652e74c59]
+	(No symbol) [0x0x7ff652dc6fd5]
+	GetHandleVerifier [0x0x7ff65331e1ed+3005069]
+	GetHandleVerifier [0x0x7ff65331831d+2980797]
+	GetHandleVerifier [0x0x7ff653337e0d+3110573]
+	GetHandleVerifier [0x0x7ff65306d6de+184190]
+	GetHandleVerifier [0x0x7ff65307516f+215567]
+	(No symbol) [0x0x7ff652dc5fd1]
+	GetHandleVerifier [0x0x7ff653441d48+4199912]
+	BaseThreadInitThunk [0x0x7ff89a3fe8d7+23]
+	RtlUserThreadStart [0x0x7ff89c4bc34c+44]
+
+</div>
+</div></div></div>
+    <div class="test-case">
+        <div class="test-case-header">
+            <h3>5.1.3 Dynamic Supreme - WeChat</h3>
+            <p><strong>Status:</strong> FAILED</p>
+            <p><strong>Description:</strong> Test WeChat payment flow for Dynamic Supreme in Personal Center</p>
+            <p><strong>Duration:</strong> 0.00 seconds</p>
+</div>
+        <div class="test-step failed">
+            <p><strong>Navigate to Personal Center</strong> - Navigate to account manager page</p>
+            <p>Status: FAILED</p>
+            <p>Duration: 0.00 seconds</p>
+
+            <div class="error-details">
+                <p><strong>Step Error:</strong> Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x0x7ff653053d85+79397]
+	GetHandleVerifier [0x0x7ff653053de0+79488]
+	(No symbol) [0x0x7ff652dfbf2c]
+	(No symbol) [0x0x7ff652e432df]
+	(No symbol) [0x0x7ff652e7b062]
+	(No symbol) [0x0x7ff652e75b93]
+	(No symbol) [0x0x7ff652e74c59]
+	(No symbol) [0x0x7ff652dc6fd5]
+	GetHandleVerifier [0x0x7ff65331e1ed+3005069]
+	GetHandleVerifier [0x0x7ff65331831d+2980797]
+	GetHandleVerifier [0x0x7ff653337e0d+3110573]
+	GetHandleVerifier [0x0x7ff65306d6de+184190]
+	GetHandleVerifier [0x0x7ff65307516f+215567]
+	(No symbol) [0x0x7ff652dc5fd1]
+	GetHandleVerifier [0x0x7ff653441d48+4199912]
+	BaseThreadInitThunk [0x0x7ff89a3fe8d7+23]
+	RtlUserThreadStart [0x0x7ff89c4bc34c+44]
+</p>
+
+                <div class="stack-trace">Traceback (most recent call last):
+  File "c:\Users\ahmad\Documents\AAA_backup\GitHub\Tian Qi IP _GH\Test_Scenario\test_report.py", line 379, in track_step
+    yield step
+  File "c:\Users\ahmad\Documents\AAA_backup\GitHub\Tian Qi IP _GH\Test_Scenario\website_Payment_Tests.py", line 549, in navigate_to_personal_center
+    driver.get("https://test-ip-tianqi.cd.xiaoxigroup.net/personal/accountManager")
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 354, in get
+    self.execute(Command.GET, {"url": url})
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 345, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidSessionIdException: Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x0x7ff653053d85+79397]
+	GetHandleVerifier [0x0x7ff653053de0+79488]
+	(No symbol) [0x0x7ff652dfbf2c]
+	(No symbol) [0x0x7ff652e432df]
+	(No symbol) [0x0x7ff652e7b062]
+	(No symbol) [0x0x7ff652e75b93]
+	(No symbol) [0x0x7ff652e74c59]
+	(No symbol) [0x0x7ff652dc6fd5]
+	GetHandleVerifier [0x0x7ff65331e1ed+3005069]
+	GetHandleVerifier [0x0x7ff65331831d+2980797]
+	GetHandleVerifier [0x0x7ff653337e0d+3110573]
+	GetHandleVerifier [0x0x7ff65306d6de+184190]
+	GetHandleVerifier [0x0x7ff65307516f+215567]
+	(No symbol) [0x0x7ff652dc5fd1]
+	GetHandleVerifier [0x0x7ff653441d48+4199912]
+	BaseThreadInitThunk [0x0x7ff89a3fe8d7+23]
+	RtlUserThreadStart [0x0x7ff89c4bc34c+44]
+
+</div>
+</div></div></div>
+    <div class="test-case">
+        <div class="test-case-header">
+            <h3>5.2.1 Static IP - Wallet Balance</h3>
+            <p><strong>Status:</strong> FAILED</p>
+            <p><strong>Description:</strong> Test wallet balance payment for Static IP in Personal Center</p>
+            <p><strong>Duration:</strong> 0.00 seconds</p>
+</div>
+        <div class="test-step failed">
+            <p><strong>Navigate to Personal Center</strong> - Navigate to account manager page</p>
+            <p>Status: FAILED</p>
+            <p>Duration: 0.00 seconds</p>
+
+            <div class="error-details">
+                <p><strong>Step Error:</strong> Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x0x7ff653053d85+79397]
+	GetHandleVerifier [0x0x7ff653053de0+79488]
+	(No symbol) [0x0x7ff652dfbf2c]
+	(No symbol) [0x0x7ff652e432df]
+	(No symbol) [0x0x7ff652e7b062]
+	(No symbol) [0x0x7ff652e75b93]
+	(No symbol) [0x0x7ff652e74c59]
+	(No symbol) [0x0x7ff652dc6fd5]
+	GetHandleVerifier [0x0x7ff65331e1ed+3005069]
+	GetHandleVerifier [0x0x7ff65331831d+2980797]
+	GetHandleVerifier [0x0x7ff653337e0d+3110573]
+	GetHandleVerifier [0x0x7ff65306d6de+184190]
+	GetHandleVerifier [0x0x7ff65307516f+215567]
+	(No symbol) [0x0x7ff652dc5fd1]
+	GetHandleVerifier [0x0x7ff653441d48+4199912]
+	BaseThreadInitThunk [0x0x7ff89a3fe8d7+23]
+	RtlUserThreadStart [0x0x7ff89c4bc34c+44]
+</p>
+
+                <div class="stack-trace">Traceback (most recent call last):
+  File "c:\Users\ahmad\Documents\AAA_backup\GitHub\Tian Qi IP _GH\Test_Scenario\test_report.py", line 379, in track_step
+    yield step
+  File "c:\Users\ahmad\Documents\AAA_backup\GitHub\Tian Qi IP _GH\Test_Scenario\website_Payment_Tests.py", line 549, in navigate_to_personal_center
+    driver.get("https://test-ip-tianqi.cd.xiaoxigroup.net/personal/accountManager")
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 354, in get
+    self.execute(Command.GET, {"url": url})
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 345, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidSessionIdException: Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x0x7ff653053d85+79397]
+	GetHandleVerifier [0x0x7ff653053de0+79488]
+	(No symbol) [0x0x7ff652dfbf2c]
+	(No symbol) [0x0x7ff652e432df]
+	(No symbol) [0x0x7ff652e7b062]
+	(No symbol) [0x0x7ff652e75b93]
+	(No symbol) [0x0x7ff652e74c59]
+	(No symbol) [0x0x7ff652dc6fd5]
+	GetHandleVerifier [0x0x7ff65331e1ed+3005069]
+	GetHandleVerifier [0x0x7ff65331831d+2980797]
+	GetHandleVerifier [0x0x7ff653337e0d+3110573]
+	GetHandleVerifier [0x0x7ff65306d6de+184190]
+	GetHandleVerifier [0x0x7ff65307516f+215567]
+	(No symbol) [0x0x7ff652dc5fd1]
+	GetHandleVerifier [0x0x7ff653441d48+4199912]
+	BaseThreadInitThunk [0x0x7ff89a3fe8d7+23]
+	RtlUserThreadStart [0x0x7ff89c4bc34c+44]
+
+</div>
+</div></div></div>
+    <div class="test-case">
+        <div class="test-case-header">
+            <h3>5.2.2 Static IP - Alipay</h3>
+            <p><strong>Status:</strong> FAILED</p>
+            <p><strong>Description:</strong> Test Alipay payment flow for Static IP in Personal Center</p>
+            <p><strong>Duration:</strong> 0.00 seconds</p>
+</div>
+        <div class="test-step failed">
+            <p><strong>Navigate to Personal Center</strong> - Navigate to account manager page</p>
+            <p>Status: FAILED</p>
+            <p>Duration: 0.00 seconds</p>
+
+            <div class="error-details">
+                <p><strong>Step Error:</strong> Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x0x7ff653053d85+79397]
+	GetHandleVerifier [0x0x7ff653053de0+79488]
+	(No symbol) [0x0x7ff652dfbf2c]
+	(No symbol) [0x0x7ff652e432df]
+	(No symbol) [0x0x7ff652e7b062]
+	(No symbol) [0x0x7ff652e75b93]
+	(No symbol) [0x0x7ff652e74c59]
+	(No symbol) [0x0x7ff652dc6fd5]
+	GetHandleVerifier [0x0x7ff65331e1ed+3005069]
+	GetHandleVerifier [0x0x7ff65331831d+2980797]
+	GetHandleVerifier [0x0x7ff653337e0d+3110573]
+	GetHandleVerifier [0x0x7ff65306d6de+184190]
+	GetHandleVerifier [0x0x7ff65307516f+215567]
+	(No symbol) [0x0x7ff652dc5fd1]
+	GetHandleVerifier [0x0x7ff653441d48+4199912]
+	BaseThreadInitThunk [0x0x7ff89a3fe8d7+23]
+	RtlUserThreadStart [0x0x7ff89c4bc34c+44]
+</p>
+
+                <div class="stack-trace">Traceback (most recent call last):
+  File "c:\Users\ahmad\Documents\AAA_backup\GitHub\Tian Qi IP _GH\Test_Scenario\test_report.py", line 379, in track_step
+    yield step
+  File "c:\Users\ahmad\Documents\AAA_backup\GitHub\Tian Qi IP _GH\Test_Scenario\website_Payment_Tests.py", line 549, in navigate_to_personal_center
+    driver.get("https://test-ip-tianqi.cd.xiaoxigroup.net/personal/accountManager")
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 354, in get
+    self.execute(Command.GET, {"url": url})
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 345, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidSessionIdException: Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x0x7ff653053d85+79397]
+	GetHandleVerifier [0x0x7ff653053de0+79488]
+	(No symbol) [0x0x7ff652dfbf2c]
+	(No symbol) [0x0x7ff652e432df]
+	(No symbol) [0x0x7ff652e7b062]
+	(No symbol) [0x0x7ff652e75b93]
+	(No symbol) [0x0x7ff652e74c59]
+	(No symbol) [0x0x7ff652dc6fd5]
+	GetHandleVerifier [0x0x7ff65331e1ed+3005069]
+	GetHandleVerifier [0x0x7ff65331831d+2980797]
+	GetHandleVerifier [0x0x7ff653337e0d+3110573]
+	GetHandleVerifier [0x0x7ff65306d6de+184190]
+	GetHandleVerifier [0x0x7ff65307516f+215567]
+	(No symbol) [0x0x7ff652dc5fd1]
+	GetHandleVerifier [0x0x7ff653441d48+4199912]
+	BaseThreadInitThunk [0x0x7ff89a3fe8d7+23]
+	RtlUserThreadStart [0x0x7ff89c4bc34c+44]
+
+</div>
+</div></div></div>
+    <div class="test-case">
+        <div class="test-case-header">
+            <h3>5.2.3 Static IP - WeChat</h3>
+            <p><strong>Status:</strong> FAILED</p>
+            <p><strong>Description:</strong> Test WeChat payment flow for Static IP in Personal Center</p>
+            <p><strong>Duration:</strong> 0.00 seconds</p>
+</div>
+        <div class="test-step failed">
+            <p><strong>Navigate to Personal Center</strong> - Navigate to account manager page</p>
+            <p>Status: FAILED</p>
+            <p>Duration: 0.00 seconds</p>
+
+            <div class="error-details">
+                <p><strong>Step Error:</strong> Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x0x7ff653053d85+79397]
+	GetHandleVerifier [0x0x7ff653053de0+79488]
+	(No symbol) [0x0x7ff652dfbf2c]
+	(No symbol) [0x0x7ff652e432df]
+	(No symbol) [0x0x7ff652e7b062]
+	(No symbol) [0x0x7ff652e75b93]
+	(No symbol) [0x0x7ff652e74c59]
+	(No symbol) [0x0x7ff652dc6fd5]
+	GetHandleVerifier [0x0x7ff65331e1ed+3005069]
+	GetHandleVerifier [0x0x7ff65331831d+2980797]
+	GetHandleVerifier [0x0x7ff653337e0d+3110573]
+	GetHandleVerifier [0x0x7ff65306d6de+184190]
+	GetHandleVerifier [0x0x7ff65307516f+215567]
+	(No symbol) [0x0x7ff652dc5fd1]
+	GetHandleVerifier [0x0x7ff653441d48+4199912]
+	BaseThreadInitThunk [0x0x7ff89a3fe8d7+23]
+	RtlUserThreadStart [0x0x7ff89c4bc34c+44]
+</p>
+
+                <div class="stack-trace">Traceback (most recent call last):
+  File "c:\Users\ahmad\Documents\AAA_backup\GitHub\Tian Qi IP _GH\Test_Scenario\test_report.py", line 379, in track_step
+    yield step
+  File "c:\Users\ahmad\Documents\AAA_backup\GitHub\Tian Qi IP _GH\Test_Scenario\website_Payment_Tests.py", line 549, in navigate_to_personal_center
+    driver.get("https://test-ip-tianqi.cd.xiaoxigroup.net/personal/accountManager")
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 354, in get
+    self.execute(Command.GET, {"url": url})
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 345, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidSessionIdException: Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x0x7ff653053d85+79397]
+	GetHandleVerifier [0x0x7ff653053de0+79488]
+	(No symbol) [0x0x7ff652dfbf2c]
+	(No symbol) [0x0x7ff652e432df]
+	(No symbol) [0x0x7ff652e7b062]
+	(No symbol) [0x0x7ff652e75b93]
+	(No symbol) [0x0x7ff652e74c59]
+	(No symbol) [0x0x7ff652dc6fd5]
+	GetHandleVerifier [0x0x7ff65331e1ed+3005069]
+	GetHandleVerifier [0x0x7ff65331831d+2980797]
+	GetHandleVerifier [0x0x7ff653337e0d+3110573]
+	GetHandleVerifier [0x0x7ff65306d6de+184190]
+	GetHandleVerifier [0x0x7ff65307516f+215567]
+	(No symbol) [0x0x7ff652dc5fd1]
+	GetHandleVerifier [0x0x7ff653441d48+4199912]
+	BaseThreadInitThunk [0x0x7ff89a3fe8d7+23]
+	RtlUserThreadStart [0x0x7ff89c4bc34c+44]
+
+</div>
+</div></div></div>
+    <div class="test-case">
+        <div class="test-case-header">
+            <h3>5.3.1 Dynamic Standard - Wallet Balance</h3>
+            <p><strong>Status:</strong> FAILED</p>
+            <p><strong>Description:</strong> Test wallet balance payment for Dynamic Standard in Personal Center</p>
+            <p><strong>Duration:</strong> 0.00 seconds</p>
+</div>
+        <div class="test-step failed">
+            <p><strong>Navigate to Personal Center</strong> - Navigate to account manager page</p>
+            <p>Status: FAILED</p>
+            <p>Duration: 0.00 seconds</p>
+
+            <div class="error-details">
+                <p><strong>Step Error:</strong> Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x0x7ff653053d85+79397]
+	GetHandleVerifier [0x0x7ff653053de0+79488]
+	(No symbol) [0x0x7ff652dfbf2c]
+	(No symbol) [0x0x7ff652e432df]
+	(No symbol) [0x0x7ff652e7b062]
+	(No symbol) [0x0x7ff652e75b93]
+	(No symbol) [0x0x7ff652e74c59]
+	(No symbol) [0x0x7ff652dc6fd5]
+	GetHandleVerifier [0x0x7ff65331e1ed+3005069]
+	GetHandleVerifier [0x0x7ff65331831d+2980797]
+	GetHandleVerifier [0x0x7ff653337e0d+3110573]
+	GetHandleVerifier [0x0x7ff65306d6de+184190]
+	GetHandleVerifier [0x0x7ff65307516f+215567]
+	(No symbol) [0x0x7ff652dc5fd1]
+	GetHandleVerifier [0x0x7ff653441d48+4199912]
+	BaseThreadInitThunk [0x0x7ff89a3fe8d7+23]
+	RtlUserThreadStart [0x0x7ff89c4bc34c+44]
+</p>
+
+                <div class="stack-trace">Traceback (most recent call last):
+  File "c:\Users\ahmad\Documents\AAA_backup\GitHub\Tian Qi IP _GH\Test_Scenario\test_report.py", line 379, in track_step
+    yield step
+  File "c:\Users\ahmad\Documents\AAA_backup\GitHub\Tian Qi IP _GH\Test_Scenario\website_Payment_Tests.py", line 549, in navigate_to_personal_center
+    driver.get("https://test-ip-tianqi.cd.xiaoxigroup.net/personal/accountManager")
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 354, in get
+    self.execute(Command.GET, {"url": url})
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 345, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidSessionIdException: Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x0x7ff653053d85+79397]
+	GetHandleVerifier [0x0x7ff653053de0+79488]
+	(No symbol) [0x0x7ff652dfbf2c]
+	(No symbol) [0x0x7ff652e432df]
+	(No symbol) [0x0x7ff652e7b062]
+	(No symbol) [0x0x7ff652e75b93]
+	(No symbol) [0x0x7ff652e74c59]
+	(No symbol) [0x0x7ff652dc6fd5]
+	GetHandleVerifier [0x0x7ff65331e1ed+3005069]
+	GetHandleVerifier [0x0x7ff65331831d+2980797]
+	GetHandleVerifier [0x0x7ff653337e0d+3110573]
+	GetHandleVerifier [0x0x7ff65306d6de+184190]
+	GetHandleVerifier [0x0x7ff65307516f+215567]
+	(No symbol) [0x0x7ff652dc5fd1]
+	GetHandleVerifier [0x0x7ff653441d48+4199912]
+	BaseThreadInitThunk [0x0x7ff89a3fe8d7+23]
+	RtlUserThreadStart [0x0x7ff89c4bc34c+44]
+
+</div>
+</div></div></div>
+    <div class="test-case">
+        <div class="test-case-header">
+            <h3>5.3.2 Dynamic Standard - Alipay</h3>
+            <p><strong>Status:</strong> FAILED</p>
+            <p><strong>Description:</strong> Test Alipay payment flow for Dynamic Standard in Personal Center</p>
+            <p><strong>Duration:</strong> 0.00 seconds</p>
+</div>
+        <div class="test-step failed">
+            <p><strong>Navigate to Personal Center</strong> - Navigate to account manager page</p>
+            <p>Status: FAILED</p>
+            <p>Duration: 0.00 seconds</p>
+
+            <div class="error-details">
+                <p><strong>Step Error:</strong> Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x0x7ff653053d85+79397]
+	GetHandleVerifier [0x0x7ff653053de0+79488]
+	(No symbol) [0x0x7ff652dfbf2c]
+	(No symbol) [0x0x7ff652e432df]
+	(No symbol) [0x0x7ff652e7b062]
+	(No symbol) [0x0x7ff652e75b93]
+	(No symbol) [0x0x7ff652e74c59]
+	(No symbol) [0x0x7ff652dc6fd5]
+	GetHandleVerifier [0x0x7ff65331e1ed+3005069]
+	GetHandleVerifier [0x0x7ff65331831d+2980797]
+	GetHandleVerifier [0x0x7ff653337e0d+3110573]
+	GetHandleVerifier [0x0x7ff65306d6de+184190]
+	GetHandleVerifier [0x0x7ff65307516f+215567]
+	(No symbol) [0x0x7ff652dc5fd1]
+	GetHandleVerifier [0x0x7ff653441d48+4199912]
+	BaseThreadInitThunk [0x0x7ff89a3fe8d7+23]
+	RtlUserThreadStart [0x0x7ff89c4bc34c+44]
+</p>
+
+                <div class="stack-trace">Traceback (most recent call last):
+  File "c:\Users\ahmad\Documents\AAA_backup\GitHub\Tian Qi IP _GH\Test_Scenario\test_report.py", line 379, in track_step
+    yield step
+  File "c:\Users\ahmad\Documents\AAA_backup\GitHub\Tian Qi IP _GH\Test_Scenario\website_Payment_Tests.py", line 549, in navigate_to_personal_center
+    driver.get("https://test-ip-tianqi.cd.xiaoxigroup.net/personal/accountManager")
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 354, in get
+    self.execute(Command.GET, {"url": url})
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 345, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidSessionIdException: Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x0x7ff653053d85+79397]
+	GetHandleVerifier [0x0x7ff653053de0+79488]
+	(No symbol) [0x0x7ff652dfbf2c]
+	(No symbol) [0x0x7ff652e432df]
+	(No symbol) [0x0x7ff652e7b062]
+	(No symbol) [0x0x7ff652e75b93]
+	(No symbol) [0x0x7ff652e74c59]
+	(No symbol) [0x0x7ff652dc6fd5]
+	GetHandleVerifier [0x0x7ff65331e1ed+3005069]
+	GetHandleVerifier [0x0x7ff65331831d+2980797]
+	GetHandleVerifier [0x0x7ff653337e0d+3110573]
+	GetHandleVerifier [0x0x7ff65306d6de+184190]
+	GetHandleVerifier [0x0x7ff65307516f+215567]
+	(No symbol) [0x0x7ff652dc5fd1]
+	GetHandleVerifier [0x0x7ff653441d48+4199912]
+	BaseThreadInitThunk [0x0x7ff89a3fe8d7+23]
+	RtlUserThreadStart [0x0x7ff89c4bc34c+44]
+
+</div>
+</div></div></div>
+    <div class="test-case">
+        <div class="test-case-header">
+            <h3>5.3.3 Dynamic Standard - WeChat</h3>
+            <p><strong>Status:</strong> FAILED</p>
+            <p><strong>Description:</strong> Test WeChat payment flow for Dynamic Standard in Personal Center</p>
+            <p><strong>Duration:</strong> 0.00 seconds</p>
+</div>
+        <div class="test-step failed">
+            <p><strong>Navigate to Personal Center</strong> - Navigate to account manager page</p>
+            <p>Status: FAILED</p>
+            <p>Duration: 0.00 seconds</p>
+
+            <div class="error-details">
+                <p><strong>Step Error:</strong> Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x0x7ff653053d85+79397]
+	GetHandleVerifier [0x0x7ff653053de0+79488]
+	(No symbol) [0x0x7ff652dfbf2c]
+	(No symbol) [0x0x7ff652e432df]
+	(No symbol) [0x0x7ff652e7b062]
+	(No symbol) [0x0x7ff652e75b93]
+	(No symbol) [0x0x7ff652e74c59]
+	(No symbol) [0x0x7ff652dc6fd5]
+	GetHandleVerifier [0x0x7ff65331e1ed+3005069]
+	GetHandleVerifier [0x0x7ff65331831d+2980797]
+	GetHandleVerifier [0x0x7ff653337e0d+3110573]
+	GetHandleVerifier [0x0x7ff65306d6de+184190]
+	GetHandleVerifier [0x0x7ff65307516f+215567]
+	(No symbol) [0x0x7ff652dc5fd1]
+	GetHandleVerifier [0x0x7ff653441d48+4199912]
+	BaseThreadInitThunk [0x0x7ff89a3fe8d7+23]
+	RtlUserThreadStart [0x0x7ff89c4bc34c+44]
+</p>
+
+                <div class="stack-trace">Traceback (most recent call last):
+  File "c:\Users\ahmad\Documents\AAA_backup\GitHub\Tian Qi IP _GH\Test_Scenario\test_report.py", line 379, in track_step
+    yield step
+  File "c:\Users\ahmad\Documents\AAA_backup\GitHub\Tian Qi IP _GH\Test_Scenario\website_Payment_Tests.py", line 549, in navigate_to_personal_center
+    driver.get("https://test-ip-tianqi.cd.xiaoxigroup.net/personal/accountManager")
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 354, in get
+    self.execute(Command.GET, {"url": url})
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 345, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidSessionIdException: Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x0x7ff653053d85+79397]
+	GetHandleVerifier [0x0x7ff653053de0+79488]
+	(No symbol) [0x0x7ff652dfbf2c]
+	(No symbol) [0x0x7ff652e432df]
+	(No symbol) [0x0x7ff652e7b062]
+	(No symbol) [0x0x7ff652e75b93]
+	(No symbol) [0x0x7ff652e74c59]
+	(No symbol) [0x0x7ff652dc6fd5]
+	GetHandleVerifier [0x0x7ff65331e1ed+3005069]
+	GetHandleVerifier [0x0x7ff65331831d+2980797]
+	GetHandleVerifier [0x0x7ff653337e0d+3110573]
+	GetHandleVerifier [0x0x7ff65306d6de+184190]
+	GetHandleVerifier [0x0x7ff65307516f+215567]
+	(No symbol) [0x0x7ff652dc5fd1]
+	GetHandleVerifier [0x0x7ff653441d48+4199912]
+	BaseThreadInitThunk [0x0x7ff89a3fe8d7+23]
+	RtlUserThreadStart [0x0x7ff89c4bc34c+44]
+
+</div>
+</div></div></div>
+    <div class="test-case">
+        <div class="test-case-header">
+            <h3>5.4.1 Dynamic Dedicated - Wallet Balance</h3>
+            <p><strong>Status:</strong> FAILED</p>
+            <p><strong>Description:</strong> Test wallet balance payment for Dynamic Dedicated in Personal Center</p>
+            <p><strong>Duration:</strong> 0.00 seconds</p>
+</div>
+        <div class="test-step failed">
+            <p><strong>Navigate to Personal Center</strong> - Navigate to account manager page</p>
+            <p>Status: FAILED</p>
+            <p>Duration: 0.00 seconds</p>
+
+            <div class="error-details">
+                <p><strong>Step Error:</strong> Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x0x7ff653053d85+79397]
+	GetHandleVerifier [0x0x7ff653053de0+79488]
+	(No symbol) [0x0x7ff652dfbf2c]
+	(No symbol) [0x0x7ff652e432df]
+	(No symbol) [0x0x7ff652e7b062]
+	(No symbol) [0x0x7ff652e75b93]
+	(No symbol) [0x0x7ff652e74c59]
+	(No symbol) [0x0x7ff652dc6fd5]
+	GetHandleVerifier [0x0x7ff65331e1ed+3005069]
+	GetHandleVerifier [0x0x7ff65331831d+2980797]
+	GetHandleVerifier [0x0x7ff653337e0d+3110573]
+	GetHandleVerifier [0x0x7ff65306d6de+184190]
+	GetHandleVerifier [0x0x7ff65307516f+215567]
+	(No symbol) [0x0x7ff652dc5fd1]
+	GetHandleVerifier [0x0x7ff653441d48+4199912]
+	BaseThreadInitThunk [0x0x7ff89a3fe8d7+23]
+	RtlUserThreadStart [0x0x7ff89c4bc34c+44]
+</p>
+
+                <div class="stack-trace">Traceback (most recent call last):
+  File "c:\Users\ahmad\Documents\AAA_backup\GitHub\Tian Qi IP _GH\Test_Scenario\test_report.py", line 379, in track_step
+    yield step
+  File "c:\Users\ahmad\Documents\AAA_backup\GitHub\Tian Qi IP _GH\Test_Scenario\website_Payment_Tests.py", line 549, in navigate_to_personal_center
+    driver.get("https://test-ip-tianqi.cd.xiaoxigroup.net/personal/accountManager")
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 354, in get
+    self.execute(Command.GET, {"url": url})
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 345, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidSessionIdException: Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x0x7ff653053d85+79397]
+	GetHandleVerifier [0x0x7ff653053de0+79488]
+	(No symbol) [0x0x7ff652dfbf2c]
+	(No symbol) [0x0x7ff652e432df]
+	(No symbol) [0x0x7ff652e7b062]
+	(No symbol) [0x0x7ff652e75b93]
+	(No symbol) [0x0x7ff652e74c59]
+	(No symbol) [0x0x7ff652dc6fd5]
+	GetHandleVerifier [0x0x7ff65331e1ed+3005069]
+	GetHandleVerifier [0x0x7ff65331831d+2980797]
+	GetHandleVerifier [0x0x7ff653337e0d+3110573]
+	GetHandleVerifier [0x0x7ff65306d6de+184190]
+	GetHandleVerifier [0x0x7ff65307516f+215567]
+	(No symbol) [0x0x7ff652dc5fd1]
+	GetHandleVerifier [0x0x7ff653441d48+4199912]
+	BaseThreadInitThunk [0x0x7ff89a3fe8d7+23]
+	RtlUserThreadStart [0x0x7ff89c4bc34c+44]
+
+</div>
+</div></div></div>
+    <div class="test-case">
+        <div class="test-case-header">
+            <h3>5.4.2 Dynamic Dedicated - Alipay</h3>
+            <p><strong>Status:</strong> FAILED</p>
+            <p><strong>Description:</strong> Test Alipay payment flow for Dynamic Dedicated in Personal Center</p>
+            <p><strong>Duration:</strong> 0.00 seconds</p>
+</div>
+        <div class="test-step failed">
+            <p><strong>Navigate to Personal Center</strong> - Navigate to account manager page</p>
+            <p>Status: FAILED</p>
+            <p>Duration: 0.00 seconds</p>
+
+            <div class="error-details">
+                <p><strong>Step Error:</strong> Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x0x7ff653053d85+79397]
+	GetHandleVerifier [0x0x7ff653053de0+79488]
+	(No symbol) [0x0x7ff652dfbf2c]
+	(No symbol) [0x0x7ff652e432df]
+	(No symbol) [0x0x7ff652e7b062]
+	(No symbol) [0x0x7ff652e75b93]
+	(No symbol) [0x0x7ff652e74c59]
+	(No symbol) [0x0x7ff652dc6fd5]
+	GetHandleVerifier [0x0x7ff65331e1ed+3005069]
+	GetHandleVerifier [0x0x7ff65331831d+2980797]
+	GetHandleVerifier [0x0x7ff653337e0d+3110573]
+	GetHandleVerifier [0x0x7ff65306d6de+184190]
+	GetHandleVerifier [0x0x7ff65307516f+215567]
+	(No symbol) [0x0x7ff652dc5fd1]
+	GetHandleVerifier [0x0x7ff653441d48+4199912]
+	BaseThreadInitThunk [0x0x7ff89a3fe8d7+23]
+	RtlUserThreadStart [0x0x7ff89c4bc34c+44]
+</p>
+
+                <div class="stack-trace">Traceback (most recent call last):
+  File "c:\Users\ahmad\Documents\AAA_backup\GitHub\Tian Qi IP _GH\Test_Scenario\test_report.py", line 379, in track_step
+    yield step
+  File "c:\Users\ahmad\Documents\AAA_backup\GitHub\Tian Qi IP _GH\Test_Scenario\website_Payment_Tests.py", line 549, in navigate_to_personal_center
+    driver.get("https://test-ip-tianqi.cd.xiaoxigroup.net/personal/accountManager")
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 354, in get
+    self.execute(Command.GET, {"url": url})
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 345, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidSessionIdException: Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x0x7ff653053d85+79397]
+	GetHandleVerifier [0x0x7ff653053de0+79488]
+	(No symbol) [0x0x7ff652dfbf2c]
+	(No symbol) [0x0x7ff652e432df]
+	(No symbol) [0x0x7ff652e7b062]
+	(No symbol) [0x0x7ff652e75b93]
+	(No symbol) [0x0x7ff652e74c59]
+	(No symbol) [0x0x7ff652dc6fd5]
+	GetHandleVerifier [0x0x7ff65331e1ed+3005069]
+	GetHandleVerifier [0x0x7ff65331831d+2980797]
+	GetHandleVerifier [0x0x7ff653337e0d+3110573]
+	GetHandleVerifier [0x0x7ff65306d6de+184190]
+	GetHandleVerifier [0x0x7ff65307516f+215567]
+	(No symbol) [0x0x7ff652dc5fd1]
+	GetHandleVerifier [0x0x7ff653441d48+4199912]
+	BaseThreadInitThunk [0x0x7ff89a3fe8d7+23]
+	RtlUserThreadStart [0x0x7ff89c4bc34c+44]
+
+</div>
+</div></div></div>
+    <div class="test-case">
+        <div class="test-case-header">
+            <h3>5.4.3 Dynamic Dedicated - WeChat</h3>
+            <p><strong>Status:</strong> FAILED</p>
+            <p><strong>Description:</strong> Test WeChat payment flow for Dynamic Dedicated in Personal Center</p>
+            <p><strong>Duration:</strong> 0.00 seconds</p>
+</div>
+        <div class="test-step failed">
+            <p><strong>Navigate to Personal Center</strong> - Navigate to account manager page</p>
+            <p>Status: FAILED</p>
+            <p>Duration: 0.00 seconds</p>
+
+            <div class="error-details">
+                <p><strong>Step Error:</strong> Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x0x7ff653053d85+79397]
+	GetHandleVerifier [0x0x7ff653053de0+79488]
+	(No symbol) [0x0x7ff652dfbf2c]
+	(No symbol) [0x0x7ff652e432df]
+	(No symbol) [0x0x7ff652e7b062]
+	(No symbol) [0x0x7ff652e75b93]
+	(No symbol) [0x0x7ff652e74c59]
+	(No symbol) [0x0x7ff652dc6fd5]
+	GetHandleVerifier [0x0x7ff65331e1ed+3005069]
+	GetHandleVerifier [0x0x7ff65331831d+2980797]
+	GetHandleVerifier [0x0x7ff653337e0d+3110573]
+	GetHandleVerifier [0x0x7ff65306d6de+184190]
+	GetHandleVerifier [0x0x7ff65307516f+215567]
+	(No symbol) [0x0x7ff652dc5fd1]
+	GetHandleVerifier [0x0x7ff653441d48+4199912]
+	BaseThreadInitThunk [0x0x7ff89a3fe8d7+23]
+	RtlUserThreadStart [0x0x7ff89c4bc34c+44]
+</p>
+
+                <div class="stack-trace">Traceback (most recent call last):
+  File "c:\Users\ahmad\Documents\AAA_backup\GitHub\Tian Qi IP _GH\Test_Scenario\test_report.py", line 379, in track_step
+    yield step
+  File "c:\Users\ahmad\Documents\AAA_backup\GitHub\Tian Qi IP _GH\Test_Scenario\website_Payment_Tests.py", line 549, in navigate_to_personal_center
+    driver.get("https://test-ip-tianqi.cd.xiaoxigroup.net/personal/accountManager")
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 354, in get
+    self.execute(Command.GET, {"url": url})
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 345, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidSessionIdException: Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x0x7ff653053d85+79397]
+	GetHandleVerifier [0x0x7ff653053de0+79488]
+	(No symbol) [0x0x7ff652dfbf2c]
+	(No symbol) [0x0x7ff652e432df]
+	(No symbol) [0x0x7ff652e7b062]
+	(No symbol) [0x0x7ff652e75b93]
+	(No symbol) [0x0x7ff652e74c59]
+	(No symbol) [0x0x7ff652dc6fd5]
+	GetHandleVerifier [0x0x7ff65331e1ed+3005069]
+	GetHandleVerifier [0x0x7ff65331831d+2980797]
+	GetHandleVerifier [0x0x7ff653337e0d+3110573]
+	GetHandleVerifier [0x0x7ff65306d6de+184190]
+	GetHandleVerifier [0x0x7ff65307516f+215567]
+	(No symbol) [0x0x7ff652dc5fd1]
+	GetHandleVerifier [0x0x7ff653441d48+4199912]
+	BaseThreadInitThunk [0x0x7ff89a3fe8d7+23]
+	RtlUserThreadStart [0x0x7ff89c4bc34c+44]
+
+</div>
+</div></div></div>
+    <div class="test-case">
+        <div class="test-case-header">
+            <h3>1.4 Dynamic Supreme - Wallet No Balance</h3>
+            <p><strong>Status:</strong> FAILED</p>
+            <p><strong>Description:</strong> Test wallet payment with no balance for Dynamic Supreme package</p>
+            <p><strong>Duration:</strong> 0.01 seconds</p>
+</div>
+        <div class="test-step failed">
+            <p><strong>Login</strong> - Login with account that has no balance</p>
+            <p>Status: FAILED</p>
+            <p>Duration: 0.00 seconds</p>
+
+            <div class="error-details">
+                <p><strong>Step Error:</strong> Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x0x7ff653053d85+79397]
+	GetHandleVerifier [0x0x7ff653053de0+79488]
+	(No symbol) [0x0x7ff652dfbf2c]
+	(No symbol) [0x0x7ff652e432df]
+	(No symbol) [0x0x7ff652e7b062]
+	(No symbol) [0x0x7ff652e75b93]
+	(No symbol) [0x0x7ff652e74c59]
+	(No symbol) [0x0x7ff652dc6fd5]
+	GetHandleVerifier [0x0x7ff65331e1ed+3005069]
+	GetHandleVerifier [0x0x7ff65331831d+2980797]
+	GetHandleVerifier [0x0x7ff653337e0d+3110573]
+	GetHandleVerifier [0x0x7ff65306d6de+184190]
+	GetHandleVerifier [0x0x7ff65307516f+215567]
+	(No symbol) [0x0x7ff652dc5fd1]
+	GetHandleVerifier [0x0x7ff653441d48+4199912]
+	BaseThreadInitThunk [0x0x7ff89a3fe8d7+23]
+	RtlUserThreadStart [0x0x7ff89c4bc34c+44]
+</p>
+
+                <div class="stack-trace">Traceback (most recent call last):
+  File "c:\Users\ahmad\Documents\AAA_backup\GitHub\Tian Qi IP _GH\Test_Scenario\website_Payment_Tests.py", line 360, in login_without_balance
+    driver.get(LOGIN_URL)
+    ~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 354, in get
+    self.execute(Command.GET, {"url": url})
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 345, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidSessionIdException: Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x0x7ff653053d85+79397]
+	GetHandleVerifier [0x0x7ff653053de0+79488]
+	(No symbol) [0x0x7ff652dfbf2c]
+	(No symbol) [0x0x7ff652e432df]
+	(No symbol) [0x0x7ff652e7b062]
+	(No symbol) [0x0x7ff652e75b93]
+	(No symbol) [0x0x7ff652e74c59]
+	(No symbol) [0x0x7ff652dc6fd5]
+	GetHandleVerifier [0x0x7ff65331e1ed+3005069]
+	GetHandleVerifier [0x0x7ff65331831d+2980797]
+	GetHandleVerifier [0x0x7ff653337e0d+3110573]
+	GetHandleVerifier [0x0x7ff65306d6de+184190]
+	GetHandleVerifier [0x0x7ff65307516f+215567]
+	(No symbol) [0x0x7ff652dc5fd1]
+	GetHandleVerifier [0x0x7ff653441d48+4199912]
+	BaseThreadInitThunk [0x0x7ff89a3fe8d7+23]
+	RtlUserThreadStart [0x0x7ff89c4bc34c+44]
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\ahmad\Documents\AAA_backup\GitHub\Tian Qi IP _GH\Test_Scenario\test_report.py", line 379, in track_step
+    yield step
+  File "c:\Users\ahmad\Documents\AAA_backup\GitHub\Tian Qi IP _GH\Test_Scenario\website_Payment_Tests.py", line 423, in login_without_balance
+    print(f"Current page source: {driver.page_source[:1000]}...")
+                                  ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 446, in page_source
+    return self.execute(Command.GET_PAGE_SOURCE)["value"]
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 345, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidSessionIdException: Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x0x7ff653053d85+79397]
+	GetHandleVerifier [0x0x7ff653053de0+79488]
+	(No symbol) [0x0x7ff652dfbf2c]
+	(No symbol) [0x0x7ff652e432df]
+	(No symbol) [0x0x7ff652e7b062]
+	(No symbol) [0x0x7ff652e75b93]
+	(No symbol) [0x0x7ff652e74c59]
+	(No symbol) [0x0x7ff652dc6fd5]
+	GetHandleVerifier [0x0x7ff65331e1ed+3005069]
+	GetHandleVerifier [0x0x7ff65331831d+2980797]
+	GetHandleVerifier [0x0x7ff653337e0d+3110573]
+	GetHandleVerifier [0x0x7ff65306d6de+184190]
+	GetHandleVerifier [0x0x7ff65307516f+215567]
+	(No symbol) [0x0x7ff652dc5fd1]
+	GetHandleVerifier [0x0x7ff653441d48+4199912]
+	BaseThreadInitThunk [0x0x7ff89a3fe8d7+23]
+	RtlUserThreadStart [0x0x7ff89c4bc34c+44]
+
+</div>
+</div></div></div>
+    <div class="test-case">
+        <div class="test-case-header">
+            <h3>2.4 Static IP - Wallet No Balance</h3>
+            <p><strong>Status:</strong> NOT_STARTED</p>
+            <p><strong>Description:</strong> Test wallet payment with no balance for Static IP package</p>
+            <p><strong>Duration:</strong> 0.00 seconds</p>
+</div></div>
+    <div class="test-case">
+        <div class="test-case-header">
+            <h3>3.4 Dynamic Standard - Wallet No Balance</h3>
+            <p><strong>Status:</strong> NOT_STARTED</p>
+            <p><strong>Description:</strong> Test wallet payment with no balance for Dynamic Standard package</p>
+            <p><strong>Duration:</strong> 0.00 seconds</p>
+</div></div>
+    <div class="test-case">
+        <div class="test-case-header">
+            <h3>4.4 Dynamic Dedicated - Wallet No Balance</h3>
+            <p><strong>Status:</strong> NOT_STARTED</p>
+            <p><strong>Description:</strong> Test wallet payment with no balance for Dynamic Dedicated package</p>
+            <p><strong>Duration:</strong> 0.00 seconds</p>
+</div></div>
+    <div class="test-case">
+        <div class="test-case-header">
+            <h3>5.1.4 Dynamic Supreme - Wallet No Balance</h3>
+            <p><strong>Status:</strong> FAILED</p>
+            <p><strong>Description:</strong> Test wallet payment with no balance for Dynamic Supreme in Personal Center</p>
+            <p><strong>Duration:</strong> 0.00 seconds</p>
+</div>
+        <div class="test-step failed">
+            <p><strong>Navigate to Personal Center</strong> - Navigate to account manager page</p>
+            <p>Status: FAILED</p>
+            <p>Duration: 0.00 seconds</p>
+
+            <div class="error-details">
+                <p><strong>Step Error:</strong> Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x0x7ff653053d85+79397]
+	GetHandleVerifier [0x0x7ff653053de0+79488]
+	(No symbol) [0x0x7ff652dfbf2c]
+	(No symbol) [0x0x7ff652e432df]
+	(No symbol) [0x0x7ff652e7b062]
+	(No symbol) [0x0x7ff652e75b93]
+	(No symbol) [0x0x7ff652e74c59]
+	(No symbol) [0x0x7ff652dc6fd5]
+	GetHandleVerifier [0x0x7ff65331e1ed+3005069]
+	GetHandleVerifier [0x0x7ff65331831d+2980797]
+	GetHandleVerifier [0x0x7ff653337e0d+3110573]
+	GetHandleVerifier [0x0x7ff65306d6de+184190]
+	GetHandleVerifier [0x0x7ff65307516f+215567]
+	(No symbol) [0x0x7ff652dc5fd1]
+	GetHandleVerifier [0x0x7ff653441d48+4199912]
+	BaseThreadInitThunk [0x0x7ff89a3fe8d7+23]
+	RtlUserThreadStart [0x0x7ff89c4bc34c+44]
+</p>
+
+                <div class="stack-trace">Traceback (most recent call last):
+  File "c:\Users\ahmad\Documents\AAA_backup\GitHub\Tian Qi IP _GH\Test_Scenario\test_report.py", line 379, in track_step
+    yield step
+  File "c:\Users\ahmad\Documents\AAA_backup\GitHub\Tian Qi IP _GH\Test_Scenario\website_Payment_Tests.py", line 549, in navigate_to_personal_center
+    driver.get("https://test-ip-tianqi.cd.xiaoxigroup.net/personal/accountManager")
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 354, in get
+    self.execute(Command.GET, {"url": url})
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 345, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidSessionIdException: Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x0x7ff653053d85+79397]
+	GetHandleVerifier [0x0x7ff653053de0+79488]
+	(No symbol) [0x0x7ff652dfbf2c]
+	(No symbol) [0x0x7ff652e432df]
+	(No symbol) [0x0x7ff652e7b062]
+	(No symbol) [0x0x7ff652e75b93]
+	(No symbol) [0x0x7ff652e74c59]
+	(No symbol) [0x0x7ff652dc6fd5]
+	GetHandleVerifier [0x0x7ff65331e1ed+3005069]
+	GetHandleVerifier [0x0x7ff65331831d+2980797]
+	GetHandleVerifier [0x0x7ff653337e0d+3110573]
+	GetHandleVerifier [0x0x7ff65306d6de+184190]
+	GetHandleVerifier [0x0x7ff65307516f+215567]
+	(No symbol) [0x0x7ff652dc5fd1]
+	GetHandleVerifier [0x0x7ff653441d48+4199912]
+	BaseThreadInitThunk [0x0x7ff89a3fe8d7+23]
+	RtlUserThreadStart [0x0x7ff89c4bc34c+44]
+
+</div>
+</div></div></div>
+    <div class="test-case">
+        <div class="test-case-header">
+            <h3>5.2.4 Static IP - Wallet No Balance</h3>
+            <p><strong>Status:</strong> FAILED</p>
+            <p><strong>Description:</strong> Test wallet payment with no balance for Static IP in Personal Center</p>
+            <p><strong>Duration:</strong> 0.00 seconds</p>
+</div>
+        <div class="test-step failed">
+            <p><strong>Navigate to Personal Center</strong> - Navigate to account manager page</p>
+            <p>Status: FAILED</p>
+            <p>Duration: 0.00 seconds</p>
+
+            <div class="error-details">
+                <p><strong>Step Error:</strong> Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x0x7ff653053d85+79397]
+	GetHandleVerifier [0x0x7ff653053de0+79488]
+	(No symbol) [0x0x7ff652dfbf2c]
+	(No symbol) [0x0x7ff652e432df]
+	(No symbol) [0x0x7ff652e7b062]
+	(No symbol) [0x0x7ff652e75b93]
+	(No symbol) [0x0x7ff652e74c59]
+	(No symbol) [0x0x7ff652dc6fd5]
+	GetHandleVerifier [0x0x7ff65331e1ed+3005069]
+	GetHandleVerifier [0x0x7ff65331831d+2980797]
+	GetHandleVerifier [0x0x7ff653337e0d+3110573]
+	GetHandleVerifier [0x0x7ff65306d6de+184190]
+	GetHandleVerifier [0x0x7ff65307516f+215567]
+	(No symbol) [0x0x7ff652dc5fd1]
+	GetHandleVerifier [0x0x7ff653441d48+4199912]
+	BaseThreadInitThunk [0x0x7ff89a3fe8d7+23]
+	RtlUserThreadStart [0x0x7ff89c4bc34c+44]
+</p>
+
+                <div class="stack-trace">Traceback (most recent call last):
+  File "c:\Users\ahmad\Documents\AAA_backup\GitHub\Tian Qi IP _GH\Test_Scenario\test_report.py", line 379, in track_step
+    yield step
+  File "c:\Users\ahmad\Documents\AAA_backup\GitHub\Tian Qi IP _GH\Test_Scenario\website_Payment_Tests.py", line 549, in navigate_to_personal_center
+    driver.get("https://test-ip-tianqi.cd.xiaoxigroup.net/personal/accountManager")
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 354, in get
+    self.execute(Command.GET, {"url": url})
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 345, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidSessionIdException: Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x0x7ff653053d85+79397]
+	GetHandleVerifier [0x0x7ff653053de0+79488]
+	(No symbol) [0x0x7ff652dfbf2c]
+	(No symbol) [0x0x7ff652e432df]
+	(No symbol) [0x0x7ff652e7b062]
+	(No symbol) [0x0x7ff652e75b93]
+	(No symbol) [0x0x7ff652e74c59]
+	(No symbol) [0x0x7ff652dc6fd5]
+	GetHandleVerifier [0x0x7ff65331e1ed+3005069]
+	GetHandleVerifier [0x0x7ff65331831d+2980797]
+	GetHandleVerifier [0x0x7ff653337e0d+3110573]
+	GetHandleVerifier [0x0x7ff65306d6de+184190]
+	GetHandleVerifier [0x0x7ff65307516f+215567]
+	(No symbol) [0x0x7ff652dc5fd1]
+	GetHandleVerifier [0x0x7ff653441d48+4199912]
+	BaseThreadInitThunk [0x0x7ff89a3fe8d7+23]
+	RtlUserThreadStart [0x0x7ff89c4bc34c+44]
+
+</div>
+</div></div></div>
+    <div class="test-case">
+        <div class="test-case-header">
+            <h3>5.3.4 Dynamic Standard - Wallet No Balance</h3>
+            <p><strong>Status:</strong> FAILED</p>
+            <p><strong>Description:</strong> Test wallet payment with no balance for Dynamic Standard in Personal Center</p>
+            <p><strong>Duration:</strong> 0.00 seconds</p>
+</div>
+        <div class="test-step failed">
+            <p><strong>Navigate to Personal Center</strong> - Navigate to account manager page</p>
+            <p>Status: FAILED</p>
+            <p>Duration: 0.00 seconds</p>
+
+            <div class="error-details">
+                <p><strong>Step Error:</strong> Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x0x7ff653053d85+79397]
+	GetHandleVerifier [0x0x7ff653053de0+79488]
+	(No symbol) [0x0x7ff652dfbf2c]
+	(No symbol) [0x0x7ff652e432df]
+	(No symbol) [0x0x7ff652e7b062]
+	(No symbol) [0x0x7ff652e75b93]
+	(No symbol) [0x0x7ff652e74c59]
+	(No symbol) [0x0x7ff652dc6fd5]
+	GetHandleVerifier [0x0x7ff65331e1ed+3005069]
+	GetHandleVerifier [0x0x7ff65331831d+2980797]
+	GetHandleVerifier [0x0x7ff653337e0d+3110573]
+	GetHandleVerifier [0x0x7ff65306d6de+184190]
+	GetHandleVerifier [0x0x7ff65307516f+215567]
+	(No symbol) [0x0x7ff652dc5fd1]
+	GetHandleVerifier [0x0x7ff653441d48+4199912]
+	BaseThreadInitThunk [0x0x7ff89a3fe8d7+23]
+	RtlUserThreadStart [0x0x7ff89c4bc34c+44]
+</p>
+
+                <div class="stack-trace">Traceback (most recent call last):
+  File "c:\Users\ahmad\Documents\AAA_backup\GitHub\Tian Qi IP _GH\Test_Scenario\test_report.py", line 379, in track_step
+    yield step
+  File "c:\Users\ahmad\Documents\AAA_backup\GitHub\Tian Qi IP _GH\Test_Scenario\website_Payment_Tests.py", line 549, in navigate_to_personal_center
+    driver.get("https://test-ip-tianqi.cd.xiaoxigroup.net/personal/accountManager")
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 354, in get
+    self.execute(Command.GET, {"url": url})
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 345, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidSessionIdException: Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x0x7ff653053d85+79397]
+	GetHandleVerifier [0x0x7ff653053de0+79488]
+	(No symbol) [0x0x7ff652dfbf2c]
+	(No symbol) [0x0x7ff652e432df]
+	(No symbol) [0x0x7ff652e7b062]
+	(No symbol) [0x0x7ff652e75b93]
+	(No symbol) [0x0x7ff652e74c59]
+	(No symbol) [0x0x7ff652dc6fd5]
+	GetHandleVerifier [0x0x7ff65331e1ed+3005069]
+	GetHandleVerifier [0x0x7ff65331831d+2980797]
+	GetHandleVerifier [0x0x7ff653337e0d+3110573]
+	GetHandleVerifier [0x0x7ff65306d6de+184190]
+	GetHandleVerifier [0x0x7ff65307516f+215567]
+	(No symbol) [0x0x7ff652dc5fd1]
+	GetHandleVerifier [0x0x7ff653441d48+4199912]
+	BaseThreadInitThunk [0x0x7ff89a3fe8d7+23]
+	RtlUserThreadStart [0x0x7ff89c4bc34c+44]
+
+</div>
+</div></div></div>
+    <div class="test-case">
+        <div class="test-case-header">
+            <h3>5.4.4 Dynamic Dedicated - Wallet No Balance</h3>
+            <p><strong>Status:</strong> FAILED</p>
+            <p><strong>Description:</strong> Test wallet payment with no balance for Dynamic Dedicated in Personal Center</p>
+            <p><strong>Duration:</strong> 0.00 seconds</p>
+</div>
+        <div class="test-step failed">
+            <p><strong>Navigate to Personal Center</strong> - Navigate to account manager page</p>
+            <p>Status: FAILED</p>
+            <p>Duration: 0.00 seconds</p>
+
+            <div class="error-details">
+                <p><strong>Step Error:</strong> Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x0x7ff653053d85+79397]
+	GetHandleVerifier [0x0x7ff653053de0+79488]
+	(No symbol) [0x0x7ff652dfbf2c]
+	(No symbol) [0x0x7ff652e432df]
+	(No symbol) [0x0x7ff652e7b062]
+	(No symbol) [0x0x7ff652e75b93]
+	(No symbol) [0x0x7ff652e74c59]
+	(No symbol) [0x0x7ff652dc6fd5]
+	GetHandleVerifier [0x0x7ff65331e1ed+3005069]
+	GetHandleVerifier [0x0x7ff65331831d+2980797]
+	GetHandleVerifier [0x0x7ff653337e0d+3110573]
+	GetHandleVerifier [0x0x7ff65306d6de+184190]
+	GetHandleVerifier [0x0x7ff65307516f+215567]
+	(No symbol) [0x0x7ff652dc5fd1]
+	GetHandleVerifier [0x0x7ff653441d48+4199912]
+	BaseThreadInitThunk [0x0x7ff89a3fe8d7+23]
+	RtlUserThreadStart [0x0x7ff89c4bc34c+44]
+</p>
+
+                <div class="stack-trace">Traceback (most recent call last):
+  File "c:\Users\ahmad\Documents\AAA_backup\GitHub\Tian Qi IP _GH\Test_Scenario\test_report.py", line 379, in track_step
+    yield step
+  File "c:\Users\ahmad\Documents\AAA_backup\GitHub\Tian Qi IP _GH\Test_Scenario\website_Payment_Tests.py", line 549, in navigate_to_personal_center
+    driver.get("https://test-ip-tianqi.cd.xiaoxigroup.net/personal/accountManager")
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 354, in get
+    self.execute(Command.GET, {"url": url})
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 345, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\ahmad\AppData\Local\Programs\Python\Python313\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidSessionIdException: Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x0x7ff653053d85+79397]
+	GetHandleVerifier [0x0x7ff653053de0+79488]
+	(No symbol) [0x0x7ff652dfbf2c]
+	(No symbol) [0x0x7ff652e432df]
+	(No symbol) [0x0x7ff652e7b062]
+	(No symbol) [0x0x7ff652e75b93]
+	(No symbol) [0x0x7ff652e74c59]
+	(No symbol) [0x0x7ff652dc6fd5]
+	GetHandleVerifier [0x0x7ff65331e1ed+3005069]
+	GetHandleVerifier [0x0x7ff65331831d+2980797]
+	GetHandleVerifier [0x0x7ff653337e0d+3110573]
+	GetHandleVerifier [0x0x7ff65306d6de+184190]
+	GetHandleVerifier [0x0x7ff65307516f+215567]
+	(No symbol) [0x0x7ff652dc5fd1]
+	GetHandleVerifier [0x0x7ff653441d48+4199912]
+	BaseThreadInitThunk [0x0x7ff89a3fe8d7+23]
+	RtlUserThreadStart [0x0x7ff89c4bc34c+44]
+
+</div>
+</div></div></div>
+</body>
+</html>
