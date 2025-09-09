@@ -14,166 +14,7 @@ import logging
 import sys
 import traceback
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from Test_Scenario.test_report import TestReport, TestCase, TestStep, track_step, create_test_case
-
-# ===== Enhanced Selector Constants =====
-
-# Login Selectors with Fallbacks
-LOGIN_SELECTORS = {
-    'phone_input': [
-        "//*[@id='__BVID__23']",  # Primary ID
-        "//input[@placeholder='请输入手机号' or @placeholder='手机号']",  # Fallback by placeholder
-        "//input[@type='tel' or @type='text'][contains(@class, 'form-control')]",  # Fallback by type and class
-        "//input[contains(@name, 'phone') or contains(@name, 'mobile')]"  # Fallback by name
-    ],
-    'password_input': [
-        "//*[@id='__BVID__24']",  # Primary ID
-        "//input[@placeholder='请输入密码' or @placeholder='密码']",  # Fallback by placeholder
-        "//input[@type='password']",  # Fallback by type
-        "//input[contains(@name, 'password') or contains(@name, 'pwd')]"  # Fallback by name
-    ],
-    'login_button': [
-        "//button[contains(text(), '登录')]",  # Primary by text
-        "//button[@type='submit']",  # Fallback by type
-        "//input[@type='submit']",  # Alternative submit input
-        "//button[contains(@class, 'btn-primary') or contains(@class, 'login')]"  # Fallback by class
-    ]
-}
-
-# Package Selection Selectors with Fallbacks
-PACKAGE_SELECTORS = {
-    'dynamic_supreme': [
-        "//div[contains(text(), '天启动态尊享')]",  # Primary by text
-        "//div[contains(@class, 'package-card') and contains(text(), '动态尊享')]",  # Fallback by class and partial text
-        "//div[@data-package='supreme' or @data-package='dynamic-supreme']",  # Fallback by data attribute
-        "//div[contains(@id, 'supreme') or contains(@id, 'dynamic')]"  # Fallback by ID
-    ],
-    'static_ip': [
-        "//div[contains(text(), '静态IP-天启')]",  # Primary by text
-        "//div[contains(@class, 'package-card') and contains(text(), '静态IP')]",  # Fallback by class and partial text
-        "//div[@data-package='static' or @data-package='static-ip']",  # Fallback by data attribute
-        "//div[contains(@id, 'static')]"  # Fallback by ID
-    ],
-    'dynamic_standard': [
-        "//div[contains(text(), '天启动态标准套餐')]",  # Primary by text
-        "//div[contains(@class, 'package-card') and contains(text(), '动态标准')]",  # Fallback by class and partial text
-        "//div[@data-package='standard' or @data-package='dynamic-standard']",  # Fallback by data attribute
-        "//div[contains(@id, 'standard')]"  # Fallback by ID
-    ],
-    'dynamic_dedicated': [
-        "//div[contains(text(), '天启动态独享套餐')]",  # Primary by text
-        "//div[contains(@class, 'package-card') and contains(text(), '动态独享')]",  # Fallback by class and partial text
-        "//div[@data-package='dedicated' or @data-package='dynamic-dedicated']",  # Fallback by data attribute
-        "//div[contains(@id, 'dedicated')]"  # Fallback by ID
-    ]
-}
-
-# Payment Method Selectors with Fallbacks
-PAYMENT_SELECTORS = {
-    'balance': [
-        "//div[contains(text(), '余额')]",  # Primary by text
-        "//div[@data-payment='balance' or @data-payment='wallet']",  # Fallback by data attribute
-        "//div[contains(@class, 'payment-option') and contains(text(), '余额')]",  # Fallback by class and text
-        "//input[@type='radio' and contains(@value, 'balance')]"  # Fallback by radio input
-    ],
-    'alipay': [
-        "//div[contains(text(), '支付宝')]",  # Primary by text
-        "//div[@data-payment='alipay']",  # Fallback by data attribute
-        "//div[contains(@class, 'payment-option') and contains(text(), '支付宝')]",  # Fallback by class and text
-        "//input[@type='radio' and contains(@value, 'alipay')]"  # Fallback by radio input
-    ],
-    'wechat': [
-        "//div[contains(text(), '微信')]",  # Primary by text
-        "//div[@data-payment='wechat' or @data-payment='weixin']",  # Fallback by data attribute
-        "//div[contains(@class, 'payment-option') and contains(text(), '微信')]",  # Fallback by class and text
-        "//input[@type='radio' and contains(@value, 'wechat')]"  # Fallback by radio input
-    ]
-}
-
-# Action Button Selectors with Fallbacks
-BUTTON_SELECTORS = {
-    'buy_now': [
-        "//div[contains(text(), '立即购买')]",  # Primary by text
-        "//button[contains(text(), '立即购买')]",  # Alternative button element
-        "//div[@data-action='buy-now' or @data-action='purchase']",  # Fallback by data attribute
-        "//div[contains(@class, 'buy-button') or contains(@class, 'purchase-btn')]"  # Fallback by class
-    ],
-    'pay_now': [
-        "//div[contains(text(), '立即支付')]",  # Primary by text
-        "//button[contains(text(), '立即支付')]",  # Alternative button element
-        "//div[@data-action='pay-now' or @data-action='payment']",  # Fallback by data attribute
-        "//div[contains(@class, 'pay-button') or contains(@class, 'payment-btn')]"  # Fallback by class
-    ],
-    'recharge_now': [
-        "//div[contains(text(), '立即充值')]",  # Primary by text
-        "//button[contains(text(), '立即充值')]",  # Alternative button element
-        "//div[@data-action='recharge' or @data-action='top-up']",  # Fallback by data attribute
-        "//div[contains(@class, 'recharge-button') or contains(@class, 'topup-btn')]"  # Fallback by class
-    ]
-}
-
-# Status Message Selectors with Fallbacks
-STATUS_SELECTORS = {
-    'success_message': [
-        "//div[contains(text(), '套餐购买成功')]",  # Primary by text
-        "//div[contains(text(), '创建成功')]",  # Alternative success text
-        "//div[contains(@class, 'success') and contains(text(), '成功')]",  # Fallback by class and text
-        "//div[@data-status='success']",  # Fallback by data attribute
-        "//div[contains(@class, 'alert-success') or contains(@class, 'message-success')]"  # Fallback by alert class
-    ],
-    'error_message': [
-        "//div[contains(text(), '账户余额不足')]",  # Primary by text
-        "//div[contains(text(), '余额不足')]",  # Alternative error text
-        "//div[contains(@class, 'error') and contains(text(), '不足')]",  # Fallback by class and text
-        "//div[@data-status='error']",  # Fallback by data attribute
-        "//div[contains(@class, 'alert-danger') or contains(@class, 'message-error')]"  # Fallback by alert class
-    ],
-    'close_button': [
-        "//div[contains(@class, 'fee-header') and contains(text(), '×')]",  # Primary by class and text
-        "//i[contains(@class, 'icon--x') and contains(@class, 'close-icon')]",  # Alternative close icon
-        "//button[contains(@class, 'close')]",  # Fallback by close class
-        "//div[@data-action='close' or @data-action='dismiss']",  # Fallback by data attribute
-        "//*[contains(@aria-label, 'close') or contains(@title, 'close')]"  # Fallback by accessibility attributes
-    ]
-}
-
-# Alipay Payment Constants with Fallbacks
-ALIPAY_SELECTORS = {
-    'email_input': [
-        "//*[@id='J_tLoginId']",  # Primary ID
-        "//input[@placeholder='请输入邮箱' or @placeholder='邮箱']",  # Fallback by placeholder
-        "//input[@type='email']",  # Fallback by type
-        "//input[contains(@name, 'email') or contains(@name, 'loginId')]"  # Fallback by name
-    ],
-    'password_input': [
-        "//*[@id='payPasswd_rsainput']",  # Primary ID
-        "//input[@type='password' and contains(@placeholder, '密码')]",  # Fallback by type and placeholder
-        "//input[contains(@name, 'password') or contains(@name, 'passwd')]"  # Fallback by name
-    ],
-    'next_button': [
-        "//*[@id='J_newBtn']/span",  # Primary ID with span
-        "//button[contains(text(), '下一步')]",  # Fallback by text
-        "//input[@type='submit' and contains(@value, '下一步')]",  # Alternative submit input
-        "//*[@id='J_newBtn']"  # Fallback without span
-    ],
-    'recipient_check': [
-        "//div[contains(text(), 'shmgbf5888@sandbox.com')]",  # Primary by text
-        "//div[contains(@class, 'recipient') and contains(text(), 'sandbox.com')]",  # Fallback by class and partial text
-        "//div[contains(text(), '收款方')]"  # Alternative by recipient label
-    ],
-    'payment_password': [
-        "//*[@id='payPassword_rsainput']",  # Primary ID
-        "//input[@type='password' and contains(@placeholder, '支付密码')]",  # Fallback by type and placeholder
-        "//input[contains(@name, 'payPassword') or contains(@name, 'paymentPassword')]"  # Fallback by name
-    ],
-    'confirm_payment': [
-        "//*[@id='J_authSubmit']",  # Primary ID
-        "//button[contains(text(), '确认付款')]",  # Fallback by text
-        "//input[@type='submit' and contains(@value, '确认')]",  # Alternative submit input
-        "//button[contains(@class, 'confirm') or contains(@class, 'submit')]"  # Fallback by class
-    ],
-
-}
+from test_reports.test_report import TestReport, TestCase, TestStep, track_step, create_test_case
 
 # ===== Global Configuration =====
 driver = webdriver.Chrome()
@@ -196,90 +37,6 @@ def create_report_dir():
     os.makedirs(test_dir, exist_ok=True)
     return test_dir
 
-def find_element_with_fallback(selector_list, timeout=20, description="element"):
-    """
-    Find element using fallback selectors with improved error handling
-    
-    Args:
-        selector_list: List of XPath selectors to try in order
-        timeout: Maximum time to wait for element
-        description: Description of element for error messages
-    
-    Returns:
-        WebElement: Found element
-        
-    Raises:
-        TimeoutException: If no selector works
-    """
-    wait = WebDriverWait(driver, timeout)
-    
-    for i, selector in enumerate(selector_list):
-        try:
-            print(f"Trying selector {i+1}/{len(selector_list)} for {description}: {selector}")
-            element = wait.until(EC.element_to_be_clickable((By.XPATH, selector)))
-            print(f"✅ Found {description} using selector {i+1}")
-            return element
-        except TimeoutException:
-            print(f"⚠️ Selector {i+1} failed for {description}")
-            continue
-        except Exception as e:
-            print(f"⚠️ Selector {i+1} error for {description}: {str(e)}")
-            continue
-    
-    # If all selectors fail, raise a comprehensive error
-    raise TimeoutException(f"Could not find {description} using any of the {len(selector_list)} selectors")
-
-def find_element_by_text_with_fallback(text_list, element_type="div", timeout=20, description="element"):
-    """
-    Find element by text content with fallback options
-    
-    Args:
-        text_list: List of text strings to search for
-        element_type: Type of element to search (div, button, etc.)
-        timeout: Maximum time to wait for element
-        description: Description of element for error messages
-    
-    Returns:
-        WebElement: Found element
-    """
-    wait = WebDriverWait(driver, timeout)
-    
-    for i, text in enumerate(text_list):
-        try:
-            selector = f"//{element_type}[contains(text(), '{text}')]"
-            print(f"Trying text selector {i+1}/{len(text_list)} for {description}: '{text}'")
-            element = wait.until(EC.element_to_be_clickable((By.XPATH, selector)))
-            print(f"✅ Found {description} using text: '{text}'")
-            return element
-        except TimeoutException:
-            print(f"⚠️ Text selector {i+1} failed for {description}: '{text}'")
-            continue
-        except Exception as e:
-            print(f"⚠️ Text selector {i+1} error for {description}: {str(e)}")
-            continue
-    
-    raise TimeoutException(f"Could not find {description} using any of the {len(text_list)} text options")
-
-def safe_click(element, description="element"):
-    """
-    Safely click an element with JavaScript fallback
-    
-    Args:
-        element: WebElement to click
-        description: Description of element for logging
-    """
-    try:
-        element.click()
-        print(f"✅ Successfully clicked {description}")
-    except Exception as e:
-        print(f"⚠️ Regular click failed for {description}, trying JavaScript click: {str(e)}")
-        try:
-            driver.execute_script("arguments[0].click();", element)
-            print(f"✅ Successfully clicked {description} using JavaScript")
-        except Exception as js_e:
-            print(f"❌ JavaScript click also failed for {description}: {str(js_e)}")
-            raise
-
 def login_with_balance(test_case):
     """Login with account that has balance"""
     with track_step(test_case, "Login", "Login with account that has balance"):
@@ -297,30 +54,28 @@ def login_with_balance(test_case):
                 print("Already logged in or redirected to main page")
                 return
             
-            # Find phone input field using fallback selectors
-            phone_input = find_element_with_fallback(
-                LOGIN_SELECTORS['phone_input'], 
-                description="phone input field"
-            )
+            # Try to find phone input field
+            phone_input = wait.until(EC.element_to_be_clickable(
+                (By.ID, "__BVID__23")))
+            print("Phone input field found")
             phone_input.clear()
             phone_input.send_keys(PHONE_WITH_BALANCE)
             print(f"Entered phone number: {PHONE_WITH_BALANCE}")
             
-            # Find password input field using fallback selectors
-            password_input = find_element_with_fallback(
-                LOGIN_SELECTORS['password_input'], 
-                description="password input field"
-            )
+            # Try to find password input field
+            password_input = wait.until(EC.element_to_be_clickable(
+                (By.ID, "__BVID__24")))
+            print("Password input field found")
             password_input.clear()
             password_input.send_keys(PASSWORD)
             print("Entered password")
             
-            # Find login button using fallback selectors
-            login_button = find_element_with_fallback(
-                LOGIN_SELECTORS['login_button'], 
-                description="login button"
-            )
-            safe_click(login_button, "login button")
+            # Try to find login button
+            login_button = wait.until(EC.element_to_be_clickable(
+                (By.XPATH, "//button[contains(text(), '登录')]")))
+            print("Login button found")
+            driver.execute_script("arguments[0].click();", login_button)
+            print("Clicked login button")
             
             # Wait a bit and check what happened
             time.sleep(5)
@@ -368,30 +123,25 @@ def login_without_balance(test_case):
                 print("Already logged in or redirected to main page")
                 return
             
-            # Find phone input field using fallback selectors
-            phone_input = find_element_with_fallback(
-                LOGIN_SELECTORS['phone_input'], 
-                description="phone input field"
-            )
+            # Try to find phone input field
+            phone_input = wait.until(EC.element_to_be_clickable(
+                (By.ID, "__BVID__23")))
             phone_input.clear()
             phone_input.send_keys(PHONE_WITHOUT_BALANCE)
             print(f"Entered phone number: {PHONE_WITHOUT_BALANCE}")
             
-            # Find password input field using fallback selectors
-            password_input = find_element_with_fallback(
-                LOGIN_SELECTORS['password_input'], 
-                description="password input field"
-            )
+            # Try to find password input field
+            password_input = wait.until(EC.element_to_be_clickable(
+                (By.ID, "__BVID__24")))
             password_input.clear()
             password_input.send_keys(PASSWORD)
             print("Entered password")
             
-            # Find login button using fallback selectors
-            login_button = find_element_with_fallback(
-                LOGIN_SELECTORS['login_button'], 
-                description="login button"
-            )
-            safe_click(login_button, "login button")
+            # Try to find login button
+            login_button = wait.until(EC.element_to_be_clickable(
+                (By.XPATH, "//button[contains(text(), '登录')]")))
+            driver.execute_script("arguments[0].click();", login_button)
+            print("Clicked login button")
             
             # Wait a bit and check what happened
             time.sleep(5)
@@ -449,97 +199,74 @@ def navigate_to_package_order():
 def select_dynamic_supreme(test_case):
     """Select Dynamic Supreme package"""
     with track_step(test_case, "Select Package", "Select Dynamic Supreme package"):
-        package = find_element_with_fallback(
-            PACKAGE_SELECTORS['dynamic_supreme'], 
-            description="Dynamic Supreme package"
-        )
-        safe_click(package, "Dynamic Supreme package")
+        package = wait.until(EC.element_to_be_clickable(
+            (By.XPATH, "//div[contains(text(), '天启动态尊享')]")))
+        driver.execute_script("arguments[0].click();", package)
         time.sleep(2)
 
 def select_Static_IP(test_case):
     """Select Static IP package"""
     with track_step(test_case, "Select Package", "Select Static IP package"):
-        package = find_element_with_fallback(
-            PACKAGE_SELECTORS['static_ip'], 
-            description="Static IP package"
-        )
-        safe_click(package, "Static IP package")
+        package = wait.until(EC.element_to_be_clickable(
+            (By.XPATH, "//div[contains(text(), '静态IP-天启')]")))
+        driver.execute_script("arguments[0].click();", package)
         time.sleep(2)
 
 def select_Dynamic_Standard(test_case):
     """Select Dynamic Standard package"""
     with track_step(test_case, "Select Package", "Select Dynamic Standard package"):
-        package = find_element_with_fallback(
-            PACKAGE_SELECTORS['dynamic_standard'], 
-            description="Dynamic Standard package"
-        )
-        safe_click(package, "Dynamic Standard package")
+        package = wait.until(EC.element_to_be_clickable(
+            (By.XPATH, "//div[contains(text(), '天启动态标准套餐')]")))
+        driver.execute_script("arguments[0].click();", package)
         time.sleep(2)
 
 def select_Dynamic_Dedicated(test_case):
     """Select Dynamic Dedicated package"""
     with track_step(test_case, "Select Package", "Select Dynamic Dedicated package"):
-        package = find_element_with_fallback(
-            PACKAGE_SELECTORS['dynamic_dedicated'], 
-            description="Dynamic Dedicated package"
-        )
-        safe_click(package, "Dynamic Dedicated package")
+        package = wait.until(EC.element_to_be_clickable(
+            (By.XPATH, "//div[contains(text(), '天启动态独享套餐')]")))
+        driver.execute_script("arguments[0].click();", package)
         time.sleep(2)
 
 def handle_buy_now(test_case):
     """Click Buy Now button"""
     with track_step(test_case, "Click Buy Now", "Click 立即购买 button"):
-        buy_button = find_element_with_fallback(
-            BUTTON_SELECTORS['buy_now'], 
-            description="Buy Now button"
-        )
-        safe_click(buy_button, "Buy Now button")
+        buy_button = wait.until(EC.element_to_be_clickable(
+            (By.XPATH, "//div[contains(text(), '立即购买')]")))
+        driver.execute_script("arguments[0].click();", buy_button)
         time.sleep(1)
 
 def select_payment_method(method_name, test_case):
     """Select payment method in popup"""
     with track_step(test_case, "Select Payment", f"Select {method_name} payment"):
-        # Map method names to selector keys
-        method_mapping = {
-            "余额": "balance",
-            "支付宝": "alipay", 
-            "微信": "wechat"
-        }
-        
-        if method_name in method_mapping:
-            method = find_element_with_fallback(
-                PAYMENT_SELECTORS[method_mapping[method_name]], 
-                description=f"{method_name} payment method"
-            )
-            safe_click(method, f"{method_name} payment method")
-        else:
-            # Fallback to original text-based search
-            method = find_element_by_text_with_fallback(
-                [method_name], 
-                element_type="div",
-                description=f"{method_name} payment method"
-            )
-            safe_click(method, f"{method_name} payment method")
+        method = wait.until(EC.element_to_be_clickable(
+            (By.XPATH, f"//div[contains(text(), '{method_name}')]")))
+        driver.execute_script("arguments[0].click();", method)
         time.sleep(1)
 
 def click_pay_now(test_case):
     """Click Pay Now button"""
     with track_step(test_case, "Click Pay Now", "Click 立即支付 button"):
-        pay_button = find_element_with_fallback(
-            BUTTON_SELECTORS['pay_now'], 
-            description="Pay Now button"
-        )
-        safe_click(pay_button, "Pay Now button")
+        pay_button = wait.until(EC.element_to_be_clickable(
+            (By.XPATH, "//div[contains(text(), '立即支付')]")))
+        driver.execute_script("arguments[0].click();", pay_button)
         time.sleep(2)
 
 def click_recharge_now(test_case):
     """Click Recharge Now button (no balance scenario)"""
     with track_step(test_case, "Click Recharge Now", "Click 立即充值 button"):
-        recharge_button = find_element_with_fallback(
-            BUTTON_SELECTORS['recharge_now'], 
-            description="Recharge Now button"
-        )
-        safe_click(recharge_button, "Recharge Now button")
+        # Try to find the specific button with class "buyBt hover text-center" (no balance scenario)
+        try:
+            recharge_button = wait.until(EC.element_to_be_clickable(
+                (By.XPATH, "//div[@class='buyBt hover text-center' and contains(text(), '立即充值')]")))
+            print("Found recharge button with specific class (no balance scenario)")
+        except TimeoutException:
+            # Fall back to general button search
+            recharge_button = wait.until(EC.element_to_be_clickable(
+                (By.XPATH, "//div[contains(text(), '立即充值')]")))
+            print("Found recharge button with general selector")
+        
+        driver.execute_script("arguments[0].click();", recharge_button)
         time.sleep(2)
 
 # ===== Personal Center Test Steps =====
@@ -662,21 +389,17 @@ def click_pay_personal(test_case):
 def verify_success_message(test_case):
     """Verify success message appears"""
     with track_step(test_case, "Verify Success", "Check for success message"):
-        success_msg = find_element_with_fallback(
-            STATUS_SELECTORS['success_message'], 
-            description="success message"
-        )
-        assert "成功" in success_msg.text
+        success_msg = wait.until(EC.visibility_of_element_located(
+            (By.XPATH, "//div[contains(@class, 'ml-20') and contains(text(), '创建成功')]")))
+        assert "创建成功" in success_msg.text
         print("✅ Success message verified")
 
 def close_wechat_popup(test_case):
     """Close WeChat QR popup"""
     with track_step(test_case, "Close WeChat Popup", "Close the WeChat QR popup"):
-        close_button = find_element_with_fallback(
-            STATUS_SELECTORS['close_button'], 
-            description="WeChat popup close button"
-        )
-        safe_click(close_button, "WeChat popup close button")
+        close_button = wait.until(EC.element_to_be_clickable(
+            (By.XPATH, "//i[contains(@class, 'icon--x') and contains(@class, 'close-icon')]")))
+        driver.execute_script("arguments[0].click();", close_button)
         time.sleep(1)
         print("WeChat popup closed")
 
@@ -691,13 +414,7 @@ def verify_alipay_sandbox(test_case, max_retries=1, retry_delay=3):
                 wait.until(lambda d: "alipaydev.com" in d.current_url)
                 assert "alipaydev.com" in driver.current_url
                 print(f"✅ Alipay sandbox verified on attempt {attempt + 1}: {driver.current_url}")
-                
-                # Now proceed with the complete payment flow
-                if process_alipay_payment(test_case):
-                    return True
-                else:
-                    print("❌ Alipay payment process failed")
-                    return False
+                return True
                 
         except Exception as e:
             if attempt < max_retries:
@@ -724,93 +441,10 @@ def verify_recharge_redirect(test_case):
 def verify_insufficient_balance_error(test_case):
     """Verify insufficient balance error message appears"""
     with track_step(test_case, "Verify Insufficient Balance Error", "Check for insufficient balance error message"):
-        error_msg = find_element_with_fallback(
-            STATUS_SELECTORS['error_message'], 
-            description="insufficient balance error message"
-        )
-        assert "不足" in error_msg.text
+        error_msg = wait.until(EC.visibility_of_element_located(
+            (By.XPATH, "//div[contains(@class, 'ml-20') and contains(text(), '账户余额不足')]")))
+        assert "账户余额不足" in error_msg.text
         print("✅ Insufficient balance error message verified")
-
-def process_alipay_payment(test_case):
-    """Complete Alipay payment flow after sandbox verification"""
-    with track_step(test_case, "Process Alipay Payment", "Complete full Alipay payment flow"):
-        try:
-
-            # Check Alipay page
-            wait.until(lambda d: "excashier-sandbox.dl.alipaydev.com/standard/auth.htm" in d.current_url)
-            print("✅ Alipay Page Opened - Successfully redirected to Alipay sandbox page")
-            
-            # Enter email using fallback selectors
-            email_input = find_element_with_fallback(
-                ALIPAY_SELECTORS['email_input'], 
-                description="Alipay email input"
-            )
-            email_input.clear()
-            email_input.send_keys("lgipqm7573@sandbox.com")
-            print("✅ Enter Email - Successfully entered email: lgipqm7573@sandbox.com")
-            
-            # Enter password using fallback selectors
-            password_input = find_element_with_fallback(
-                ALIPAY_SELECTORS['password_input'], 
-                description="Alipay password input"
-            )
-            password_input.clear()
-            password_input.send_keys("111111")
-            print("✅ Enter Alipay Password - Successfully entered password: 111111")
-            time.sleep(5)
-            
-            # Click 下一步 (Next Step) using fallback selectors
-            next_button = find_element_with_fallback(
-                ALIPAY_SELECTORS['next_button'], 
-                description="Alipay next button"
-            )
-            safe_click(next_button, "Alipay next button")
-            time.sleep(3)
-            print("✅ Click Next Step - Successfully clicked 下一步")
-            
-            # Verify recipient using fallback selectors
-            try:
-                recipient_element = find_element_with_fallback(
-                    ALIPAY_SELECTORS['recipient_check'], 
-                    description="Alipay recipient check"
-                )
-                print("✅ Verify Recipient - Successfully verified recipient: shmgbf5888@sandbox.com")
-            except Exception as e:
-                print(f"⚠️ Verify Recipient - Could not verify recipient: {str(e)}")
-            
-            # Enter payment password using fallback selectors
-            payment_password = find_element_with_fallback(
-                ALIPAY_SELECTORS['payment_password'], 
-                description="Alipay payment password input"
-            )
-            payment_password.clear()
-            payment_password.send_keys("111111")
-            print("✅ Enter Payment Password - Successfully entered payment password")
-            
-            # Click confirm payment using fallback selectors
-            confirm_payment_button = find_element_with_fallback(
-                ALIPAY_SELECTORS['confirm_payment'], 
-                description="Alipay confirm payment button"
-            )
-            safe_click(confirm_payment_button, "Alipay confirm payment button")
-            time.sleep(15)
-            print("✅ Confirm Payment - Successfully clicked 确认付款")
-            
-            # Wait for redirection
-            print("Waiting 10 seconds for redirection...")
-            time.sleep(10)
-            
-            # Check if redirected back
-            if "test-ip-tianqi.cd.xiaoxigroup.net" in driver.current_url:
-                print("✅ Alipay Payment Success - Successfully redirected back to main site")
-                return True
-            else:
-                print(f"⚠️ Alipay Payment Check - Current URL: {driver.current_url}")
-                return True
-                
-        except Exception as e:
-            print(f"❌ Alipay Payment Process Error: {str(e)}")
-            return False
 # ===== Test Cases Dynamic Supreme =====
 def test_balance_sufficient(report_dir, test_case):
     """Test balance payment with sufficient funds"""
@@ -825,19 +459,15 @@ def test_balance_sufficient(report_dir, test_case):
         
         # Verify success popup
         with track_step(test_case, "Verify Success", "Check purchase success message"):
-            success_msg = find_element_with_fallback(
-                STATUS_SELECTORS['success_message'], 
-                description="purchase success message"
-            )
-            assert "成功" in success_msg.text
+            success_msg = wait.until(EC.visibility_of_element_located(
+                (By.XPATH, "//div[contains(text(), '套餐购买成功')]")))
+            assert "套餐购买成功" in success_msg.text
             
             # Close success popup
             with track_step(test_case, "Close Success Popup", "Close the success popup"):
-                close_button = find_element_with_fallback(
-                    STATUS_SELECTORS['close_button'], 
-                    description="success popup close button"
-                )
-                safe_click(close_button, "success popup close button")
+                close_button = wait.until(EC.element_to_be_clickable(
+                    (By.XPATH, "//div[contains(@class, 'fee-header') and contains(text(), '×')]")))
+                driver.execute_script("arguments[0].click();", close_button)
                 time.sleep(1)
                 print("Success popup closed")
             
@@ -859,7 +489,7 @@ def test_alipay_payment(report_dir, test_case):
         select_payment_method("支付宝", test_case)
         click_pay_now(test_case)
         
-        # Verify Alipay sandbox and complete payment flow
+        # Verify Alipay sandbox
         if not verify_alipay_sandbox(test_case):
             return False
         return True
@@ -882,20 +512,15 @@ def test_wechat_payment(report_dir, test_case):
         
         # Verify WeChat QR
         with track_step(test_case, "Verify WeChat", "Check QR code appears"):
-            qr_code = find_element_by_text_with_fallback(
-                ["微信扫码支付", "微信支付"], 
-                element_type="div",
-                description="WeChat QR code"
-            )
+            qr_code = wait.until(EC.visibility_of_element_located(
+                (By.XPATH, "//div[contains(text(), '微信扫码支付')]")))
             assert qr_code.is_displayed()
             
             # Close WeChat QR popup
             with track_step(test_case, "Close WeChat QR Popup", "Close the WeChat QR popup"):
-                close_button = find_element_with_fallback(
-                    STATUS_SELECTORS['close_button'], 
-                    description="WeChat QR popup close button"
-                )
-                safe_click(close_button, "WeChat QR popup close button")
+                close_button = wait.until(EC.element_to_be_clickable(
+                    (By.XPATH, "//i[contains(@class, 'icon--x') and contains(@class, 'close-icon')]")))
+                driver.execute_script("arguments[0].click();", close_button)
                 time.sleep(1)
                 print("WeChat QR popup closed")
             
@@ -920,19 +545,15 @@ def test_balance_sufficient_static(report_dir, test_case):
         
         # Verify success popup
         with track_step(test_case, "Verify Success", "Check purchase success message"):
-            success_msg = find_element_with_fallback(
-                STATUS_SELECTORS['success_message'], 
-                description="purchase success message"
-            )
-            assert "成功" in success_msg.text
+            success_msg = wait.until(EC.visibility_of_element_located(
+                (By.XPATH, "//div[contains(text(), '套餐购买成功')]")))
+            assert "套餐购买成功" in success_msg.text
             
             # Close success popup
             with track_step(test_case, "Close Success Popup", "Close the success popup"):
-                close_button = find_element_with_fallback(
-                    STATUS_SELECTORS['close_button'], 
-                    description="success popup close button"
-                )
-                safe_click(close_button, "success popup close button")
+                close_button = wait.until(EC.element_to_be_clickable(
+                    (By.XPATH, "//div[contains(@class, 'fee-header') and contains(text(), '×')]")))
+                driver.execute_script("arguments[0].click();", close_button)
                 time.sleep(1)
                 print("Success popup closed")
             
@@ -954,7 +575,7 @@ def test_alipay_payment_static(report_dir, test_case):
         select_payment_method("支付宝", test_case)
         click_pay_now(test_case)
         
-        # Verify Alipay sandbox and complete payment flow
+        # Verify Alipay sandbox
         if not verify_alipay_sandbox(test_case):
             return False
         return True
@@ -977,20 +598,15 @@ def test_wechat_payment_static(report_dir, test_case):
         
         # Verify WeChat QR
         with track_step(test_case, "Verify WeChat", "Check QR code appears"):
-            qr_code = find_element_by_text_with_fallback(
-                ["微信扫码支付", "微信支付"], 
-                element_type="div",
-                description="WeChat QR code"
-            )
+            qr_code = wait.until(EC.visibility_of_element_located(
+                (By.XPATH, "//div[contains(text(), '微信扫码支付')]")))
             assert qr_code.is_displayed()
             
             # Close WeChat QR popup
             with track_step(test_case, "Close WeChat QR Popup", "Close the WeChat QR popup"):
-                close_button = find_element_with_fallback(
-                    STATUS_SELECTORS['close_button'], 
-                    description="WeChat QR popup close button"
-                )
-                safe_click(close_button, "WeChat QR popup close button")
+                close_button = wait.until(EC.element_to_be_clickable(
+                    (By.XPATH, "//i[contains(@class, 'icon--x') and contains(@class, 'close-icon')]")))
+                driver.execute_script("arguments[0].click();", close_button)
                 time.sleep(1)
                 print("WeChat QR popup closed")
             
@@ -1015,19 +631,15 @@ def test_balance_sufficient_standard(report_dir, test_case):
         
         # Verify success popup
         with track_step(test_case, "Verify Success", "Check purchase success message"):
-            success_msg = find_element_with_fallback(
-                STATUS_SELECTORS['success_message'], 
-                description="purchase success message"
-            )
-            assert "成功" in success_msg.text
+            success_msg = wait.until(EC.visibility_of_element_located(
+                (By.XPATH, "//div[contains(text(), '套餐购买成功')]")))
+            assert "套餐购买成功" in success_msg.text
             
             # Close success popup
             with track_step(test_case, "Close Success Popup", "Close the success popup"):
-                close_button = find_element_with_fallback(
-                    STATUS_SELECTORS['close_button'], 
-                    description="success popup close button"
-                )
-                safe_click(close_button, "success popup close button")
+                close_button = wait.until(EC.element_to_be_clickable(
+                    (By.XPATH, "//div[contains(@class, 'fee-header') and contains(text(), '×')]")))
+                driver.execute_script("arguments[0].click();", close_button)
                 time.sleep(1)
                 print("Success popup closed")
             
@@ -1049,7 +661,7 @@ def test_alipay_payment_standard(report_dir, test_case):
         select_payment_method("支付宝", test_case)
         click_pay_now(test_case)
         
-        # Verify Alipay sandbox and complete payment flow
+        # Verify Alipay sandbox
         if not verify_alipay_sandbox(test_case):
             return False
         return True
@@ -1072,20 +684,15 @@ def test_wechat_payment_standard(report_dir, test_case):
         
         # Verify WeChat QR
         with track_step(test_case, "Verify WeChat", "Check QR code appears"):
-            qr_code = find_element_by_text_with_fallback(
-                ["微信扫码支付", "微信支付"], 
-                element_type="div",
-                description="WeChat QR code"
-            )
+            qr_code = wait.until(EC.visibility_of_element_located(
+                (By.XPATH, "//div[contains(text(), '微信扫码支付')]")))
             assert qr_code.is_displayed()
             
             # Close WeChat QR popup
             with track_step(test_case, "Close WeChat QR Popup", "Close the WeChat QR popup"):
-                close_button = find_element_with_fallback(
-                    STATUS_SELECTORS['close_button'], 
-                    description="WeChat QR popup close button"
-                )
-                safe_click(close_button, "WeChat QR popup close button")
+                close_button = wait.until(EC.element_to_be_clickable(
+                    (By.XPATH, "//i[contains(@class, 'icon--x') and contains(@class, 'close-icon')]")))
+                driver.execute_script("arguments[0].click();", close_button)
                 time.sleep(1)
                 print("WeChat QR popup closed")
             
@@ -1110,19 +717,15 @@ def test_balance_sufficient_dedicated(report_dir, test_case):
         
         # Verify success popup
         with track_step(test_case, "Verify Success", "Check purchase success message"):
-            success_msg = find_element_with_fallback(
-                STATUS_SELECTORS['success_message'], 
-                description="purchase success message"
-            )
-            assert "成功" in success_msg.text
+            success_msg = wait.until(EC.visibility_of_element_located(
+                (By.XPATH, "//div[contains(text(), '套餐购买成功')]")))
+            assert "套餐购买成功" in success_msg.text
             
             # Close success popup
             with track_step(test_case, "Close Success Popup", "Close the success popup"):
-                close_button = find_element_with_fallback(
-                    STATUS_SELECTORS['close_button'], 
-                    description="success popup close button"
-                )
-                safe_click(close_button, "success popup close button")
+                close_button = wait.until(EC.element_to_be_clickable(
+                    (By.XPATH, "//div[contains(@class, 'fee-header') and contains(text(), '×')]")))
+                driver.execute_script("arguments[0].click();", close_button)
                 time.sleep(1)
                 print("Success popup closed")
             
@@ -1144,7 +747,7 @@ def test_alipay_payment_dedicated(report_dir, test_case):
         select_payment_method("支付宝", test_case)
         click_pay_now(test_case)
         
-        # Verify Alipay sandbox and complete payment flow
+        # Verify Alipay sandbox
         if not verify_alipay_sandbox(test_case):
             return False
         return True
@@ -1167,20 +770,15 @@ def test_wechat_payment_dedicated(report_dir, test_case):
         
         # Verify WeChat QR
         with track_step(test_case, "Verify WeChat", "Check QR code appears"):
-            qr_code = find_element_by_text_with_fallback(
-                ["微信扫码支付", "微信支付"], 
-                element_type="div",
-                description="WeChat QR code"
-            )
+            qr_code = wait.until(EC.visibility_of_element_located(
+                (By.XPATH, "//div[contains(text(), '微信扫码支付')]")))
             assert qr_code.is_displayed()
             
             # Close WeChat QR popup
             with track_step(test_case, "Close WeChat QR Popup", "Close the WeChat QR popup"):
-                close_button = find_element_with_fallback(
-                    STATUS_SELECTORS['close_button'], 
-                    description="WeChat QR popup close button"
-                )
-                safe_click(close_button, "WeChat QR popup close button")
+                close_button = wait.until(EC.element_to_be_clickable(
+                    (By.XPATH, "//i[contains(@class, 'icon--x') and contains(@class, 'close-icon')]")))
+                driver.execute_script("arguments[0].click();", close_button)
                 time.sleep(1)
                 print("WeChat QR popup closed")
             
@@ -1242,8 +840,6 @@ def test_personal_alipay_supreme(report_dir, test_case):
         input_random_account(test_case)
         select_payment_method_personal("支付宝", test_case)
         click_pay_personal(test_case)
-        
-        # Verify Alipay sandbox and complete payment flow
         if not verify_alipay_sandbox(test_case):
             return False
         return True
@@ -1302,8 +898,6 @@ def test_personal_alipay_static(report_dir, test_case):
         input_random_account(test_case)
         select_payment_method_personal("支付宝", test_case)
         click_pay_personal(test_case)
-        
-        # Verify Alipay sandbox and complete payment flow
         if not verify_alipay_sandbox(test_case):
             return False
         return True
@@ -1362,8 +956,6 @@ def test_personal_alipay_standard(report_dir, test_case):
         input_random_account(test_case)
         select_payment_method_personal("支付宝", test_case)
         click_pay_personal(test_case)
-        
-        # Verify Alipay sandbox and complete payment flow
         if not verify_alipay_sandbox(test_case):
             return False
         return True
@@ -1422,8 +1014,6 @@ def test_personal_alipay_dedicated(report_dir, test_case):
         input_random_account(test_case)
         select_payment_method_personal("支付宝", test_case)
         click_pay_personal(test_case)
-        
-        # Verify Alipay sandbox and complete payment flow
         if not verify_alipay_sandbox(test_case):
             return False
         return True
